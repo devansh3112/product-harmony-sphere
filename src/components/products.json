@@ -1,0 +1,1774 @@
+{
+    "categories": {
+      "carbon_black": {
+        "description": "Advanced endpoint security and protection solutions",
+        "products": [
+          {
+            "name": "Carbon Black App Control",
+            "short_description": "Trusted software enforcement with flexible deployment",
+            "description": "Carbon Black App Control leverages a positive security model allowing only trusted software to run. It can be deployed on-premise, on private and public clouds.",
+            "features": [
+              "Positive security model",
+              "On-premise and cloud deployment",
+              "Trusted software enforcement"
+            ],
+            "use_cases": [
+              "Reduce unplanned downtime of critical systems",
+              "Reduce costly re-imaging",
+              "Consolidate agents",
+              "Prevent unwanted changes to system configs",
+              "Protect legacy systems",
+              "Manage software licenses accurately"
+            ],
+            "competition": [
+              "Ivanti",
+              "Airlock Digital",
+              "Tripwire"
+            ],
+            "clients": [
+              "HDFC Bank",
+              "Federal Bank",
+              "Viatris/Mylan",
+              "Bajaj Finance"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://tei.forrester.com/go/carbonblack/appcontrol/?lang=en-us",
+              "https://techdocs.broadcom.com/us/en/carbon-black/app-control.html",
+              "https://developer.carbonblack.com/reference/enterprise-protection/",
+              "https://docs.broadcom.com/docs/carbon-black-app-control-technical-overview"
+            ]
+          },
+          {
+            "name": "Carbon Black EDR",
+            "short_description": "Comprehensive threat detection and response platform",
+            "description": "Carbon Black EDR detects and responds to advanced attacks through a comprehensive and integrated approach for security teams.",
+            "features": [
+              "Advanced threat detection",
+              "Incident response",
+              "Threat hunting",
+              "Proactive defense"
+            ],
+            "use_cases": [
+              "Advanced Threat Detection",
+              "Incident Response",
+              "Threat Hunting",
+              "Malware Analysis",
+              "Compliance & Reporting",
+              "Insider Threat Detection",
+              "Data Exfiltration Detection",
+              "Operational Efficiency",
+              "Third-Party Risk Management",
+              "Ransomware Detection"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/edr.html"
+            ]
+          },
+          {
+            "name": "Carbon Black Endpoint Foundation",
+            "short_description": "Next-gen antivirus and endpoint protection",
+            "description": "NGAV, Behavioral EDR, and Device Control for comprehensive endpoint protection.",
+            "features": [
+              "NGAV",
+              "Behavioral EDR",
+              "Device Control"
+            ],
+            "use_cases": [
+              "Ransomware Defense",
+              "Operational Efficiency",
+              "Malware Analysis",
+              "Real-Time Monitoring",
+              "Data Exfiltration Prevention"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          },
+          {
+            "name": "Carbon Black Endpoint Advanced",
+            "short_description": "Advanced endpoint protection with live query and vulnerability management",
+            "description": "Live Query, Vulnerability Management, NGAV, Behavioral EDR, and Device Control for advanced endpoint protection.",
+            "features": [
+              "Live Query",
+              "Vulnerability Management",
+              "NGAV",
+              "Behavioral EDR",
+              "Device Control"
+            ],
+            "use_cases": [
+              "Ransomware Defense",
+              "Operational Efficiency",
+              "Malware Analysis",
+              "Real-Time Monitoring",
+              "Data Exfiltration Prevention"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          },
+          {
+            "name": "Carbon Black Endpoint Enterprise",
+            "short_description": "Enterprise-grade endpoint protection with advanced features",
+            "description": "Live Query, Vulnerability Management, NGAV, Behavioral EDR, Device Control, and Enterprise EDR for comprehensive enterprise endpoint protection.",
+            "features": [
+              "Live Query",
+              "Vulnerability Management",
+              "NGAV",
+              "Behavioral EDR",
+              "Device Control",
+              "Enterprise EDR"
+            ],
+            "use_cases": [
+              "Ransomware Defense",
+              "Operational Efficiency",
+              "Malware Analysis",
+              "Real-Time Monitoring",
+              "Data Exfiltration Prevention"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          },
+          {
+            "name": "Carbon Black Workload Enterprise",
+            "short_description": "Enterprise-grade workload protection",
+            "description": "Enterprise EDR, NGAV, Behavioral EDR, Asset Inventory, Live Query, CIS Benchmarks, vCenter Plug-in, Lifecycle Management, and Vulnerability Management for workload protection.",
+            "features": [
+              "Enterprise EDR",
+              "NGAV",
+              "Behavioral EDR",
+              "Asset Inventory",
+              "Live Query",
+              "CIS Benchmarks",
+              "vCenter Plug-in",
+              "Lifecycle Management",
+              "Vulnerability Management"
+            ],
+            "use_cases": [
+              "Public Cloud Support",
+              "CIS Benchmarks",
+              "Ransomware Defense",
+              "Operational Efficiency",
+              "Malware Analysis",
+              "Real-Time Monitoring",
+              "Data Exfiltration Prevention"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          },
+          {
+            "name": "Carbon Black eNDR/XDR",
+            "short_description": "Extended detection and response",
+            "description": "eNDR/XDR for enterprise-grade threat detection and response.",
+            "features": [
+              "Enterprise EDR",
+              "Network Visibility",
+              "Identity Intelligence"
+            ],
+            "use_cases": [
+              "Enterprise EDR",
+              "Network Visibility",
+              "Identity Intelligence"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          },
+          {
+            "name": "Carbon Black Host Based Firewall",
+            "short_description": "Host-based firewall management",
+            "description": "Management console to monitor and control network connections from managed endpoints.",
+            "features": [
+              "Flexible rule-based enforcement",
+              "Integrated console policy workflows",
+              "Increased visibility into network and application behavior"
+            ],
+            "use_cases": [
+              "Flexible rule-based enforcement",
+              "Integrated console policy workflows",
+              "Increased visibility into network and application behavior"
+            ],
+            "competition": [
+              "Palo Alto",
+              "Crowdstrike",
+              "Sentinel One"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/carbon-black/cloud.html",
+              "https://developer.carbonblack.com/reference/carbon-black-cloud",
+              "https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false",
+              "https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us"
+            ]
+          }
+        ]
+      },
+      "dlp": {
+        "description": "Comprehensive data loss prevention solutions",
+        "products": [
+          {
+            "name": "Endpoint DLP",
+            "short_description": "Protect sensitive data on endpoints",
+            "description": "Symantec Endpoint DLP lets you identify sensitive information on endpoints and regulate its flow.",
+            "features": [
+              "Sensitive data identification",
+              "Data flow monitoring",
+              "Endpoint protection"
+            ],
+            "use_cases": [
+              "Prevent data leakage",
+              "Monitor sensitive information",
+              "Regulate data transfer",
+              "Protect confidential files"
+            ],
+            "competition": [
+              "Forcepoint",
+              "Zscaler",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Aditya Birla Group",
+              "Ciinfotech"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-1/about-discovering-and-preventing-data-loss-on-endpoints.html"
+            ]
+          },
+          {
+            "name": "Network DLP",
+            "short_description": "Network-based data loss prevention",
+            "description": "Network DLP captures and analyzes traffic on network, detecting confidential data and traffic metadata over specified protocols.",
+            "features": [
+              "Traffic analysis",
+              "Confidential data detection",
+              "Protocol monitoring"
+            ],
+            "use_cases": [
+              "Detect confidential data transfer",
+              "Monitor network traffic",
+              "Prevent data exfiltration"
+            ],
+            "competition": [
+              "Forcepoint",
+              "Zscaler",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Aditya Birla Group",
+              "Ciinfotech",
+              "Softcell"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-1/implementing-network-monitor.html"
+            ]
+          },
+          {
+            "name": "Storage DLP",
+            "short_description": "Data loss prevention for storage",
+            "description": "DLP is a set of technologies, products, and techniques that are designed to stop sensitive information from leaving an organization.",
+            "features": [
+              "Data discovery",
+              "Data protection",
+              "Storage scanning"
+            ],
+            "use_cases": [
+              "Identify exposed confidential data",
+              "Secure sensitive information",
+              "Prevent data loss"
+            ],
+            "competition": [
+              "Forcepoint",
+              "Zscaler"
+            ],
+            "clients": [
+              "Aditya Birla Group",
+              "Ciinfotech"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-1/implementing-network-monitor.html"
+            ]
+          },
+          {
+            "name": "CASB DLP",
+            "short_description": "Cloud-based data loss prevention",
+            "description": "DLP helps you understand how your sensitive information is being used, including what data is being handled and by whom.",
+            "features": [
+              "Cloud application scanning",
+              "Real-time monitoring",
+              "Data protection"
+            ],
+            "use_cases": [
+              "Monitor cloud applications",
+              "Protect sensitive data",
+              "Prevent data loss in the cloud"
+            ],
+            "competition": [
+              "Forcepoint",
+              "Zscaler"
+            ],
+            "clients": [
+              "Aditya Birla Group",
+              "Ciinfotech",
+              "Softcell"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/information-security/data-loss-prevention/16-1/using-cloud-services-to-prevent-data-loss.html"
+            ]
+          }
+        ]
+      },
+      "endpoint": {
+        "description": "Comprehensive endpoint security solutions",
+        "products": [
+          {
+            "name": "SEP-SES",
+            "short_description": "Comprehensive endpoint protection suite",
+            "description": "Symantec Endpoint Security provides advanced protection against modern cyber threats.",
+            "features": [
+              "Application control",
+              "Device control",
+              "Advanced threat protection"
+            ],
+            "use_cases": [
+              "Reduce unplanned downtime",
+              "Prevent malware infections",
+              "Protect legacy systems"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Application-Control.html"
+            ]
+          },
+          {
+            "name": "Adaptive Protection",
+            "short_description": "Protection against sophisticated attacks",
+            "description": "Adaptive Protection protects enterprise environments from the shift in the threat landscape toward sophisticated and targeted attacks.",
+            "features": [
+              "Living off the Land (LOTL) attack prevention",
+              "Customizable protection policies",
+              "Advanced threat detection"
+            ],
+            "use_cases": [
+              "Protect against sophisticated attacks",
+              "Customize protection policies",
+              "Detect advanced threats"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "HCL",
+              "PNB",
+              "Axis Bank",
+              "Infosys"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Adaptive-Protection.html"
+            ]
+          },
+          {
+            "name": "AD Threat Defense",
+            "short_description": "Active Directory threat defense",
+            "description": "AD breach assessment and threat defense for Active Directory environments.",
+            "features": [
+              "Active Directory breach assessment",
+              "Threat detection",
+              "Cloud and on-premise deployment"
+            ],
+            "use_cases": [
+              "Protect Active Directory",
+              "Detect breaches",
+              "Deploy on cloud or on-premise"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Axis Bank (In Progress)"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Threat-Defense-for-Active-Directory.html"
+            ]
+          },
+          {
+            "name": "Host Integrity",
+            "short_description": "Endpoint compliance and integrity checks",
+            "description": "SEP Host Integrity provides flexible compliance checks and options to automate remediation.",
+            "features": [
+              "Compliance checks",
+              "Automated remediation",
+              "Scalable policy updates"
+            ],
+            "use_cases": [
+              "Ensure endpoint compliance",
+              "Automate remediation",
+              "Scalable policy management"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Settings/cs-help-hi-console-v14067393-d4155e15268.html"
+            ]
+          },
+          {
+            "name": "IPS",
+            "short_description": "Network-based intrusion prevention",
+            "description": "Powerful network-based protection prevents attacks from malicious domains, OS and application vulnerabilities before attackers can touch the file system.",
+            "features": [
+              "Network-based protection",
+              "Proactive threat prevention",
+              "Exploit layer protection"
+            ],
+            "use_cases": [
+              "Prevent network-based attacks",
+              "Protect against OS vulnerabilities",
+              "Proactively block threats"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/about-symantec-ips-signatures-v36817114-d53e9297.html"
+            ]
+          },
+          {
+            "name": "AML",
+            "short_description": "Advanced machine learning for threat prevention",
+            "description": "SEP leverages machine learning for prevention, especially when not connected to the cloud.",
+            "features": [
+              "Machine learning-based prevention",
+              "Offline threat detection",
+              "Advanced threat protection"
+            ],
+            "use_cases": [
+              "Prevent advanced threats",
+              "Detect threats offline",
+              "Leverage machine learning"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/how-does-use-advanced-machine-learning-v120625733-d47e275.html"
+            ]
+          },
+          {
+            "name": "MTM (Mobile Threat Management)",
+            "short_description": "Mobile device threat protection",
+            "description": "Symantec provides best-in-class protection for mobile devices that covers OS vulnerabilities and suspicious and malicious apps as well as risky Wi-Fi identification and protection.",
+            "features": [
+              "Mobile OS protection",
+              "Malicious app detection",
+              "Risky Wi-Fi protection"
+            ],
+            "use_cases": [
+              "Protect mobile devices",
+              "Detect malicious apps",
+              "Identify risky Wi-Fi"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "PNB"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Integrations/unified-endpoint-management-v131977090-d4155e1035/configuring-zero-touch-onboarding-of-sep-mobile-app-for-mobile-devices.html"
+            ]
+          },
+          {
+            "name": "GEM (Generic Exploit Mitigation)",
+            "short_description": "Signature-less exploit mitigation",
+            "description": "SEP pre-emptively blocks exploits using heap spray techniques, abuse of java security manager, etc., and works regardless of flaw/bug/vulnerability.",
+            "features": [
+              "Signature-less exploit prevention",
+              "Heap spray mitigation",
+              "Java security manager protection"
+            ],
+            "use_cases": [
+              "Prevent zero-day exploits",
+              "Mitigate heap spray attacks",
+              "Protect against Java vulnerabilities"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Glossary/memory-exploit-mitigation-v123023328-d4155e40710.html"
+            ]
+          },
+          {
+            "name": "IS - Suspicious Detection",
+            "short_description": "Suspicious file detection",
+            "description": "Detects any suspicious files in your network based on the intensity level that is set in the Intensive Protection policy.",
+            "features": [
+              "Suspicious file detection",
+              "Intensive protection policy",
+              "File analysis"
+            ],
+            "use_cases": [
+              "Detect suspicious files",
+              "Set protection intensity",
+              "Analyze file behavior"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/antimalware-policy-advanced-settings-v128420816-d4155e13131/using-intensive-protection-settings-v119910353-d4155e29254.html"
+            ]
+          },
+          {
+            "name": "Tamper Protection",
+            "short_description": "Endpoint protection tampering prevention",
+            "description": "SEP has powerful tamper protection that monitors SEP processes, files, and registry keys and prevents malware or users from disabling endpoint protection.",
+            "features": [
+              "Tamper protection",
+              "Process monitoring",
+              "Registry key protection"
+            ],
+            "use_cases": [
+              "Prevent tampering",
+              "Monitor SEP processes",
+              "Protect registry keys"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Infosys",
+              "HCL",
+              "ICICI",
+              "HDFC",
+              "Axis Bank",
+              "Vodafone",
+              "PNB",
+              "SBI Life",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/about-tamper-protection-settings-v129409766-d4155e22442.html"
+            ]
+          },
+          {
+            "name": "Threat Hunting",
+            "short_description": "Automated threat hunting",
+            "description": "Decades of threat intelligence and security experts automate threat hunting and provide additional customer-specific context.",
+            "features": [
+              "Automated threat hunting",
+              "Threat intelligence",
+              "Customer-specific context"
+            ],
+            "use_cases": [
+              "Automate threat hunting",
+              "Leverage threat intelligence",
+              "Provide customer-specific context"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "Axis Bank",
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://apidocs.securitycloud.symantec.com/#/doc?id=related_api"
+            ]
+          },
+          {
+            "name": "TAA",
+            "short_description": "Targeted attack analytics",
+            "description": "SEDR provides precise detections from time-tested Targeted Attack Analytics, based on global activity of the good and the bad across all customer enterprises that comprise the telemetry set.",
+            "features": [
+              "Targeted attack detection",
+              "Global telemetry analysis",
+              "Precise detections"
+            ],
+            "use_cases": [
+              "Detect targeted attacks",
+              "Analyze global telemetry",
+              "Provide precise detections"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "PNB",
+              "Axis Bank",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response/About-Incidents/about-targeted-attack-analytics-v134669993-d38e88773.html"
+            ]
+          },
+          {
+            "name": "Sandboxing",
+            "short_description": "Malware analysis and sandboxing",
+            "description": "Cynic is included in SES Complete. Cynic supports PE, Documents, and PS1, etc. Symantec has the option of on-prem Malware Analysis Appliance for on-prem EDR.",
+            "features": [
+              "Malware analysis",
+              "Sandboxing",
+              "On-prem and cloud options"
+            ],
+            "use_cases": [
+              "Analyze malware",
+              "Sandbox suspicious files",
+              "Deploy on-prem or cloud"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "PNB",
+              "Axis Bank",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html"
+            ]
+          },
+          {
+            "name": "EDR",
+            "short_description": "Endpoint detection and response",
+            "description": "Symantec EPP and EDR are both available for cloud, on-prem, and hybrid deployments.",
+            "features": [
+              "Endpoint detection",
+              "Response capabilities",
+              "Cloud, on-prem, and hybrid deployment"
+            ],
+            "use_cases": [
+              "Detect endpoint threats",
+              "Respond to incidents",
+              "Deploy on cloud, on-prem, or hybrid"
+            ],
+            "competition": [
+              "Microsoft",
+              "PaloAlto",
+              "SentinelOne",
+              "Trellix",
+              "Crowdstrike",
+              "Trend Micro"
+            ],
+            "clients": [
+              "PNB",
+              "Axis Bank",
+              "Canara Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html"
+            ]
+          },
+          {
+            "name": "SPE - NAS",
+            "short_description": "Network-attached storage protection",
+            "description": "Provides defense-in-depth protection of storage and protects sensitive data stored in centralized repositories from hackers and infection.",
+            "features": [
+              "Storage protection",
+              "Sensitive data protection",
+              "Centralized repository security"
+            ],
+            "use_cases": [
+              "Protect network-attached storage",
+              "Secure sensitive data",
+              "Prevent storage infections"
+            ],
+            "competition": [
+              "Trend Micro"
+            ],
+            "clients": [
+              "Axis Bank",
+              "HDFC",
+              "Infosys"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          },
+          {
+            "name": "SPE - CS",
+            "short_description": "Cloud storage protection",
+            "description": "Protects important business data and tools/utilities residing on storage devices that need malware protection.",
+            "features": [
+              "Cloud storage protection",
+              "Malware prevention",
+              "Business data security"
+            ],
+            "use_cases": [
+              "Protect cloud storage",
+              "Prevent malware infections",
+              "Secure business data"
+            ],
+            "competition": [
+              "AWS",
+              "ClamAV",
+              "Trend Micro"
+            ],
+            "clients": [
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html"
+            ]
+          },
+          {
+            "name": "DCS",
+            "short_description": "Data center security",
+            "description": "Provides IDS, system hardening, logon/logoff monitoring, configuration monitoring, and least privilege access control.",
+            "features": [
+              "Intrusion detection",
+              "System hardening",
+              "Configuration monitoring"
+            ],
+            "use_cases": [
+              "Protect data centers",
+              "Monitor system configurations",
+              "Enforce least privilege access"
+            ],
+            "competition": [
+              "Trend Micro",
+              "Trellix"
+            ],
+            "clients": [
+              "PNB",
+              "Axis Bank",
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/data-center-security-(dcs)/6-9-3.html"
+            ]
+          }
+        ]
+      },
+      "proxy": {
+        "description": "Advanced network and web protection solutions",
+        "products": [
+          {
+            "name": "CloudSOC CASB",
+            "short_description": "Cloud access security broker",
+            "description": "Protects data leak from endpoints and provides visibility into cloud applications.",
+            "features": [
+              "Shadow IT identification",
+              "Application risk assessment",
+              "Cloud application control"
+            ],
+            "use_cases": [
+              "Identify unsanctioned applications",
+              "Assess application risks",
+              "Control cloud application usage"
+            ],
+            "competition": [
+              "Forcepoint",
+              "Zscaler",
+              "Trend Micro"
+            ],
+            "clients": [
+              "HCL",
+              "Axis Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/netops-product-brief"
+            ]
+          },
+          {
+            "name": "Network Protection Suite",
+            "short_description": "Safe internet browsing and SSL/TLS interception",
+            "description": "A single product with multiple implementations; on-premises, cloud, or hybrid. It includes multiple features and components used to protect networks, clients, and servers from today's malicious traffic while allowing safe interaction with all available applications from any location.",
+            "features": [
+              "Safe internet browsing",
+              "SSL/TLS interception",
+              "Centralized management"
+            ],
+            "use_cases": [
+              "Protect networks from malicious traffic",
+              "Allow safe application interaction",
+              "Centralize management and reporting"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "State Bank Of India",
+              "Axis Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Reverse Proxy",
+            "short_description": "Protection for internally hosted web servers",
+            "description": "Protect, secure, and accelerate web applications and websites hosted in customer premises/data centers.",
+            "features": [
+              "Web application protection",
+              "Website acceleration",
+              "Data center security"
+            ],
+            "use_cases": [
+              "Protect internal web servers",
+              "Secure web applications",
+              "Accelerate website performance"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "State Bank Of India",
+              "Axis Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Proxy on Cloud - SaaS",
+            "short_description": "Safe internet browsing and SSL/TLS interception",
+            "description": "A single product with multiple implementations; on-premises, cloud, or hybrid. It includes multiple features and components used to protect networks, clients, and servers from today's malicious traffic while allowing safe interaction with all available applications from any location.",
+            "features": [
+              "Safe internet browsing",
+              "SSL/TLS interception",
+              "Centralized management"
+            ],
+            "use_cases": [
+              "Protect networks from malicious traffic",
+              "Allow safe application interaction",
+              "Centralize management and reporting"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Cloud Firewall Service - SaaS",
+            "short_description": "Granular control over non-HTTP/HTTPS protocols",
+            "description": "Firewall policies are available in the cloud for all non-Web-based traffic, allowing administrators to filter traffic according to user and layer four port.",
+            "features": [
+              "Granular traffic control",
+              "Non-HTTP/HTTPS protocol filtering",
+              "Cloud-based firewall policies"
+            ],
+            "use_cases": [
+              "Filter non-Web traffic",
+              "Control traffic by user and port",
+              "Enforce cloud-based firewall policies"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope"
+            ],
+            "clients": [
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Deep File Inspection - Content Analysis - On Premise",
+            "short_description": "Content analysis for threat protection",
+            "description": "File-based malware detection and Machine Learning with the Content Analysis licensing for Edge SWG and Cloud SWG.",
+            "features": [
+              "File-based malware detection",
+              "Machine learning",
+              "Content analysis"
+            ],
+            "use_cases": [
+              "Detect file-based malware",
+              "Analyze content for threats",
+              "Protect against malicious downloads"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "State Bank Of India",
+              "Axis Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Deep File Inspection - Content Analysis - Cloud/SaaS",
+            "short_description": "Content analysis for threat protection",
+            "description": "File-based malware detection and Machine Learning with the Content Analysis licensing for Edge SWG and Cloud SWG.",
+            "features": [
+              "File-based malware detection",
+              "Machine learning",
+              "Content analysis"
+            ],
+            "use_cases": [
+              "Detect file-based malware",
+              "Analyze content for threats",
+              "Protect against malicious downloads"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "High Risk or Full Web Isolation",
+            "short_description": "Protection from harmful and unknown web URLs",
+            "description": "Execution of all web sessions away from endpoints, sending only a safe rendering of information to users’ browsers. This prevents any website-delivered, zero-day malware from reaching user devices.",
+            "features": [
+              "Web session isolation",
+              "Zero-day malware prevention",
+              "Safe rendering of web content"
+            ],
+            "use_cases": [
+              "Isolate high-risk web sessions",
+              "Prevent zero-day malware",
+              "Render safe web content"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "State Bank Of India",
+              "Axis Bank",
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "Malware Analysis - Only on SaaS",
+            "short_description": "Sandboxing for unknown threats",
+            "description": "File-based malware detection, Machine Learning, and cloud-based sandboxing and remote file detonation is included with the Content Analysis licensing for Cloud SWG.",
+            "features": [
+              "File-based malware detection",
+              "Cloud-based sandboxing",
+              "Remote file detonation"
+            ],
+            "use_cases": [
+              "Detect unknown threats",
+              "Analyze malware in the cloud",
+              "Detonate files remotely"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope",
+              "Forcepoint"
+            ],
+            "clients": [
+              "State Bank Of India",
+              "Axis Bank",
+              "HCL"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "ZTNA",
+            "short_description": "Secure private access to resources",
+            "description": "ZTNA eliminates inbound connections to customer networks (and the need for a VPN) and creates a software-defined perimeter (SDP) between users and applications. Only authorized users can connect to specific applications while making applications invisible to attackers.",
+            "features": [
+              "Secure private access",
+              "Software-defined perimeter",
+              "Application invisibility"
+            ],
+            "use_cases": [
+              "Secure access to resources",
+              "Eliminate inbound connections",
+              "Create application invisibility"
+            ],
+            "competition": [
+              "Zscaler",
+              "NetSkope"
+            ],
+            "clients": [
+              "HCL (in adoption phase)"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/symantec-network-protection-product-brief"
+            ]
+          },
+          {
+            "name": "SSLV",
+            "short_description": "SSL/TLS decryption",
+            "description": "The SSL Visibility Appliance is an integral component to any organization’s traffic management strategy, providing visibility into encrypted traffic that ensures attacks cannot slip by undetected.",
+            "features": [
+              "SSL/TLS decryption",
+              "Encrypted traffic visibility",
+              "Attack detection"
+            ],
+            "use_cases": [
+              "Decrypt SSL/TLS traffic",
+              "Detect attacks in encrypted traffic",
+              "Provide traffic visibility"
+            ],
+            "competition": [
+              "Gigamon"
+            ],
+            "clients": [
+              "Axis Bank",
+              "HDFC Bank"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/SSL-Visibility-DS"
+            ]
+          }
+        ]
+      },
+      "aod": {
+        "description": "Application and Optimization Division solutions",
+        "products": [
+          {
+            "name": "DX NetOps",
+            "short_description": "Network management and monitoring",
+            "description": "Network events, fault management, performance monitoring, and configuration management.",
+            "features": [
+              "Network events tracking",
+              "Performance monitoring",
+              "Network flow analysis"
+            ],
+            "use_cases": [
+              "Network performance optimization",
+              "Fault management",
+              "Configuration tracking"
+            ],
+            "competition": [
+              "Solarwinds",
+              "HP NNM",
+              "Manage Engine"
+            ],
+            "clients": [
+              "Wipro",
+              "Infosys",
+              "Bank Of Maharashtra",
+              "India Department of Post"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/netops-product-brief"
+            ]
+          },
+          {
+            "name": "AppNeta",
+            "short_description": "Synthetic network monitoring",
+            "description": "Digital Experience Monitoring with hop-by-hop network path analysis.",
+            "features": [
+              "Digital experience monitoring",
+              "Network path analysis",
+              "Synthetic monitoring"
+            ],
+            "use_cases": [
+              "Monitor digital experience",
+              "Analyze network paths",
+              "Synthetic network monitoring"
+            ],
+            "competition": [
+              "Cisco 1000E"
+            ],
+            "clients": [
+              "EXL Service"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/appneta-sb"
+            ]
+          },
+          {
+            "name": "Clarity",
+            "short_description": "Project portfolio management",
+            "description": "Centralized planning and prioritization, resource optimization, reporting, and insights.",
+            "features": [
+              "Centralized planning",
+              "Resource optimization",
+              "Reporting and insights"
+            ],
+            "use_cases": [
+              "Plan and prioritize projects",
+              "Optimize resources",
+              "Generate reports and insights"
+            ],
+            "competition": [
+              "Planview",
+              "ServiceNow",
+              "Microsoft Project"
+            ],
+            "clients": [
+              "HCL",
+              "Infosys"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/clarity-ppm-product-brief"
+            ]
+          },
+          {
+            "name": "Rally",
+            "short_description": "Agile project management",
+            "description": "Agile development, release planning & management, defect management & quality assurance.",
+            "features": [
+              "Agile development",
+              "Release planning",
+              "Defect management"
+            ],
+            "use_cases": [
+              "Manage agile projects",
+              "Plan and manage releases",
+              "Ensure quality assurance"
+            ],
+            "competition": [
+              "Jira"
+            ],
+            "clients": [
+              "HCL",
+              "Infosys"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/docs/rally-software-product-brief"
+            ]
+          },
+          {
+            "name": "Automic Automation",
+            "short_description": "IT process automation",
+            "description": "Manage complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.",
+            "features": [
+              "Workload automation",
+              "Cross-platform management",
+              "Cloud automation"
+            ],
+            "use_cases": [
+              "Automate IT processes",
+              "Manage complex workloads",
+              "Integrate across platforms"
+            ],
+            "competition": [
+              "BMC Control-M",
+              "Stonebranch UAC"
+            ],
+            "clients": [
+              "Infosys",
+              "Wipro"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/12398023"
+            ]
+          },
+          {
+            "name": "Autosys Workload Automation",
+            "short_description": "Batch processing and data integration",
+            "description": "Automated data transfers, nightly reports & analytics, data backup & recovery.",
+            "features": [
+              "Batch processing",
+              "Data integration",
+              "Automated data transfers"
+            ],
+            "use_cases": [
+              "Automate data transfers",
+              "Generate nightly reports",
+              "Backup and recover data"
+            ],
+            "competition": [
+              "BMC Control-M",
+              "IBM Workload Scheduler"
+            ],
+            "clients": [
+              "SBI",
+              "HDFC",
+              "Aditya Birla Sun Life"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "https://docs.broadcom.com/doc/ca-workload-automation-ae"
+            ]
+          }
+        ]
+      },
+      "ims": {
+        "description": "Information Management Systems security solutions",
+        "products": [
+          {
+            "name": "Security Analytics",
+            "short_description": "Advanced threat detection and forensics",
+            "description": "Improves network visibility, inspection, and forensics to accelerate incident response and remediation.",
+            "features": [
+              "Network visibility",
+              "Threat inspection",
+              "Incident forensics"
+            ],
+            "use_cases": [
+              "Accelerate incident response",
+              "Network threat detection",
+              "Security forensics"
+            ],
+            "competition": [
+              "Qradar",
+              "Vehere",
+              "ExtraHop"
+            ],
+            "clients": [
+              "HDFC Bank"
+            ],
+            "subscription_type": "Hardware and Subscription",
+            "white_paper_links": [
+              "https://www.broadcom.com/products/cybersecurity/network/forensics-security-analytics"
+            ]
+          },
+          {
+            "name": "SMG / ESS",
+            "short_description": "Email security and antispam",
+            "description": "Email protection against spam and malicious emails.",
+            "features": [
+              "Email protection",
+              "Antispam",
+              "Malicious email detection"
+            ],
+            "use_cases": [
+              "Protect against spam",
+              "Detect malicious emails",
+              "Secure email communication"
+            ],
+            "competition": [
+              "Proofpoint",
+              "Barracuda",
+              "Trend Micro",
+              "Trellix"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": []
+          },
+          {
+            "name": "PGP Endpoint",
+            "short_description": "Drive encryption and whole disk encryption",
+            "description": "Data protection through drive encryption and whole disk encryption.",
+            "features": [
+              "Drive encryption",
+              "Whole disk encryption",
+              "Data protection"
+            ],
+            "use_cases": [
+              "Encrypt drives",
+              "Protect data",
+              "Secure endpoints"
+            ],
+            "competition": [
+              "Trellix",
+              "ServiceNow"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": []
+          },
+          {
+            "name": "VIP",
+            "short_description": "Multifactor authentication",
+            "description": "Application protection through multifactor authentication.",
+            "features": [
+              "Multifactor authentication",
+              "Application protection",
+              "Secure access"
+            ],
+            "use_cases": [
+              "Secure application access",
+              "Implement multifactor authentication",
+              "Protect sensitive data"
+            ],
+            "competition": [
+              "Mic"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": []
+          },
+          {
+            "name": "SiteMinder",
+            "short_description": "Authentication and single sign-on",
+            "description": "SSO, OAUTH, SAML for secure authentication.",
+            "features": [
+              "Single sign-on",
+              "OAUTH",
+              "SAML"
+            ],
+            "use_cases": [
+              "Implement single sign-on",
+              "Secure authentication",
+              "Protect applications"
+            ],
+            "competition": [
+              "ForgeRock",
+              "ADFS",
+              "Ping Access"
+            ],
+            "clients": [
+              "SIA",
+              "DoP",
+              "MinDef",
+              "HK Leisure and Culture Service",
+              "Latitude Financial Service Australia"
+            ],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "VIP Authentication Hub",
+            "short_description": "Authentication hub",
+            "description": "SSO, OAUTH, SAML, FIDO2, MFA, Risk-Based Auth for secure authentication.",
+            "features": [
+              "Single sign-on",
+              "OAUTH",
+              "SAML",
+              "FIDO2",
+              "MFA",
+              "Risk-Based Auth"
+            ],
+            "use_cases": [
+              "Implement secure authentication",
+              "Enable multifactor authentication",
+              "Protect applications"
+            ],
+            "competition": [
+              "Okta",
+              "Auth0",
+              "Ping Identity",
+              "EntraID"
+            ],
+            "clients": [],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "VIP SaaS",
+            "short_description": "SaaS-based authentication",
+            "description": "SSO, OAUTH, SAML, FIDO2, MFA for secure SaaS authentication.",
+            "features": [
+              "Single sign-on",
+              "OAUTH",
+              "SAML",
+              "FIDO2",
+              "MFA"
+            ],
+            "use_cases": [
+              "Secure SaaS applications",
+              "Implement multifactor authentication",
+              "Protect cloud-based services"
+            ],
+            "competition": [
+              "Okta",
+              "Auth0",
+              "Ping Identity",
+              "EntraID"
+            ],
+            "clients": [
+              "Singtel",
+              "BOQ Specialist",
+              "Bank Australia",
+              "Wuxi Diagnostic Lab"
+            ],
+            "subscription_type": "Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "Advanced Authentication",
+            "short_description": "Advanced authentication",
+            "description": "SSO, MFA for secure authentication.",
+            "features": [
+              "Single sign-on",
+              "Multifactor authentication",
+              "Secure access"
+            ],
+            "use_cases": [
+              "Implement secure authentication",
+              "Enable multifactor authentication",
+              "Protect applications"
+            ],
+            "competition": [
+              "Okta",
+              "EntraID",
+              "Cisco Duo"
+            ],
+            "clients": [
+              "Security Bank",
+              "Federal Bank",
+              "DoP",
+              "Maybank"
+            ],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "Identity Suite",
+            "short_description": "Identity management and governance",
+            "description": "Identity Lifecycle Management, Identity Governance, User Service Portal, User Provisioning.",
+            "features": [
+              "Identity lifecycle management",
+              "Identity governance",
+              "User service portal",
+              "User provisioning"
+            ],
+            "use_cases": [
+              "Manage identity lifecycle",
+              "Govern identities",
+              "Provide user self-service"
+            ],
+            "competition": [
+              "Sailpoint",
+              "Azure AD",
+              "Ping Identity"
+            ],
+            "clients": [
+              "DoP",
+              "Latitude Financial Service Australia",
+              "Kasikornbank",
+              "Maybank",
+              "PTT Global Chemical"
+            ],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "PAM",
+            "short_description": "Password and privilege access management",
+            "description": "Password Vault, Privilege Access Management for secure access control.",
+            "features": [
+              "Password vault",
+              "Privilege access management",
+              "Secure access control"
+            ],
+            "use_cases": [
+              "Manage passwords securely",
+              "Control privilege access",
+              "Secure access to critical systems"
+            ],
+            "competition": [
+              "Cyberark",
+              "Hashcorp"
+            ],
+            "clients": [
+              "Singapore NEA",
+              "Jurong Town Corporation",
+              "KyoungNam Bank"
+            ],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          },
+          {
+            "name": "CA Directory",
+            "short_description": "Directory services",
+            "description": "User directory for identity management.",
+            "features": [
+              "User directory",
+              "Identity management",
+              "Secure access"
+            ],
+            "use_cases": [
+              "Manage user directories",
+              "Secure identity management",
+              "Provide secure access"
+            ],
+            "competition": [
+              "RHDS",
+              "AD",
+              "Oracle DSEE",
+              "OpenLDAP"
+            ],
+            "clients": [
+              "Kasikorn Bank",
+              "DoP"
+            ],
+            "subscription_type": "Perm/Subscription",
+            "white_paper_links": [
+              "Product Doc"
+            ]
+          }
+        ]
+      },
+      "itsm": {
+        "description": "IT Service Management solutions",
+        "products": [
+          {
+            "name": "CA Service Desk",
+            "short_description": "Comprehensive IT service management platform",
+            "description": "Helps IT teams manage incidents, problems, changes, and service requests efficiently.",
+            "features": [
+              "Incident management",
+              "Problem management",
+              "Change management",
+              "Self-service portal"
+            ],
+            "use_cases": [
+              "IT operations efficiency",
+              "Service interruption management",
+              "Customer support tracking"
+            ],
+            "competition": [
+              "ServiceNow",
+              "Freshservice",
+              "Zendesk"
+            ],
+            "clients": [],
+            "subscription_type": "Subscription",
+            "white_paper_links": []
+          }
+        ]
+      }
+    }
+  }
