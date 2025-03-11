@@ -531,56 +531,134 @@ const sampleCategories = [
   }
 ];
 
+// Add these utility functions at the top level
+const calculateRelevanceScore = (product: any, searchTerms: string[]) => {
+  let score = 0;
+  const name = product.name.toLowerCase();
+  const description = product.description.toLowerCase();
+
+  for (const term of searchTerms) {
+    // Exact matches in name are weighted highest
+    if (name.includes(term)) score += 3;
+    // Exact matches in description are weighted medium
+    if (description.includes(term)) score += 2;
+    
+    // Fuzzy matching for typos and partial matches
+    const nameParts = name.split(' ');
+    const descParts = description.split(' ');
+    
+    // Check for partial matches in name
+    for (const part of nameParts) {
+      if (part.startsWith(term) || term.startsWith(part)) score += 1;
+      if (levenshteinDistance(term, part) <= 2) score += 0.5;
+    }
+    
+    // Check for partial matches in description
+    for (const part of descParts) {
+      if (part.startsWith(term) || term.startsWith(part)) score += 0.5;
+      if (levenshteinDistance(term, part) <= 2) score += 0.25;
+    }
+  }
+  
+  return score;
+};
+
+const levenshteinDistance = (str1: string, str2: string) => {
+  const track = Array(str2.length + 1).fill(null).map(() =>
+    Array(str1.length + 1).fill(null));
+  
+  for (let i = 0; i <= str1.length; i += 1) {
+    track[0][i] = i;
+  }
+  for (let j = 0; j <= str2.length; j += 1) {
+    track[j][0] = j;
+  }
+
+  for (let j = 1; j <= str2.length; j += 1) {
+    for (let i = 1; i <= str1.length; i += 1) {
+      const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+      track[j][i] = Math.min(
+        track[j][i - 1] + 1,
+        track[j - 1][i] + 1,
+        track[j - 1][i - 1] + indicator
+      );
+    }
+  }
+  
+  return track[str2.length][str1.length];
+};
+
 const Products = () => {
   const [categories, setCategories] = useState(sampleCategories);
   const [filteredCategories, setFilteredCategories] = useState(sampleCategories);
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [sortOrder, setSortOrder] = useState<'relevance' | 'name' | 'category'>('relevance');
+  const [minRelevanceScore, setMinRelevanceScore] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   
-  // Debounce search term to prevent excessive filtering
+  // Enhanced debounce with configurable delay
   useEffect(() => {
+    const DEBOUNCE_DELAY = searchTerm.length > 3 ? 150 : 300; // Faster debounce for longer queries
     const timer = setTimeout(() => {
       setDebouncedSearchTerm(searchTerm);
-    }, 300);
+    }, DEBOUNCE_DELAY);
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  // Memoize the search function for better performance
+  // Enhanced search with relevance scoring and fuzzy matching
   const searchProduct = React.useCallback((product: any, term: string) => {
-    if (!term) return true;
+    if (!term) return { matches: true, score: 0 };
     
-    const searchTerms = term.toLowerCase().split(' ').filter(t => t.length > 0);
-    const productName = product.name.toLowerCase();
-    const productDesc = product.description.toLowerCase();
+    const searchTerms = term.toLowerCase()
+      .split(' ')
+      .filter(t => t.length > 0)
+      .sort((a, b) => b.length - a.length); // Process longer terms first
     
-    return searchTerms.every(term => 
-      productName.includes(term) || productDesc.includes(term)
-    );
-  }, []);
+    const score = calculateRelevanceScore(product, searchTerms);
+    const matches = score > minRelevanceScore;
+    
+    return { matches, score };
+  }, [minRelevanceScore]);
 
-  // Memoize status filter function
-  const matchesStatus = React.useCallback((product: any, filter: string) => {
-    if (filter === 'all') return true;
-    return filter === 'active' ? product.isActive : !product.isActive;
-  }, []);
-
+  // Enhanced filtering with caching
+  const filterCache = React.useRef(new Map());
+  
   useEffect(() => {
-    // Filter categories and their products based on search term and status
+    const cacheKey = `${debouncedSearchTerm}-${selectedCategory}-${sortOrder}`;
+    
+    if (filterCache.current.has(cacheKey)) {
+      setFilteredCategories(filterCache.current.get(cacheKey));
+      return;
+    }
+    
+    // Filter categories and their products
     const filtered = categories.map(category => {
-      // If category is selected, only process that category
       if (selectedCategory && category.id !== selectedCategory) {
         return { ...category, products: [] };
       }
 
-      const filteredProducts = category.products.filter(product => 
-        searchProduct(product, debouncedSearchTerm) && 
-        matchesStatus(product, statusFilter)
-      );
+      const filteredProducts = category.products
+        .map(product => {
+          const { matches, score } = searchProduct(product, debouncedSearchTerm);
+          return matches ? { ...product, relevanceScore: score } : null;
+        })
+        .filter(Boolean)
+        .sort((a, b) => {
+          switch (sortOrder) {
+            case 'relevance':
+              return b.relevanceScore - a.relevanceScore;
+            case 'name':
+              return a.name.localeCompare(b.name);
+            case 'category':
+              return a.category.localeCompare(b.category);
+            default:
+              return 0;
+          }
+        });
 
       return {
         ...category,
@@ -591,13 +669,24 @@ const Products = () => {
       (selectedCategory === category.id && debouncedSearchTerm === '')
     );
 
+    filterCache.current.set(cacheKey, filtered);
     setFilteredCategories(filtered);
-  }, [categories, debouncedSearchTerm, statusFilter, selectedCategory, searchProduct, matchesStatus]);
+    
+    // Clear cache when it grows too large
+    if (filterCache.current.size > 100) {
+      filterCache.current.clear();
+    }
+  }, [
+    categories,
+    debouncedSearchTerm,
+    selectedCategory,
+    sortOrder,
+    searchProduct
+  ]);
 
   // Reset search when changing categories
   useEffect(() => {
     setSearchTerm('');
-    setStatusFilter('all');
   }, [selectedCategory]);
   
   const handleProductClick = (id: string) => {
@@ -618,7 +707,6 @@ const Products = () => {
   
   const clearFilters = () => {
     setSearchTerm('');
-    setStatusFilter('all');
   };
   
   return (
@@ -657,7 +745,7 @@ const Products = () => {
           </Button>
         )}
         
-        {/* Filters and search */}
+        {/* Enhanced filters section */}
         <div className="mb-8 p-4 bg-white/60 backdrop-blur-sm border border-border/40 rounded-lg shadow-sm">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
@@ -670,16 +758,18 @@ const Products = () => {
               />
             </div>
             <div className="flex items-center space-x-2 sm:w-auto w-full">
-              <Filter size={18} className="text-muted-foreground" />
-              <Select value={statusFilter} onValueChange={setStatusFilter}>
+              <Select 
+                value={sortOrder} 
+                onValueChange={(value: 'relevance' | 'name' | 'category') => setSortOrder(value)}
+              >
                 <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Status" />
+                  <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="all">All</SelectItem>
-                    <SelectItem value="active">Active</SelectItem>
-                    <SelectItem value="inactive">Inactive</SelectItem>
+                    <SelectItem value="relevance">Relevance</SelectItem>
+                    <SelectItem value="name">Name</SelectItem>
+                    <SelectItem value="category">Category</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -687,45 +777,26 @@ const Products = () => {
           </div>
           
           {/* Active filters */}
-          {(searchTerm || statusFilter !== 'all') && (
+          {searchTerm && (
             <div className="mt-4 flex flex-wrap gap-2">
-              {searchTerm && (
-                <Badge variant="secondary" className="flex items-center gap-1">
-                  Search: {searchTerm}
-                  <button 
-                    onClick={() => setSearchTerm('')}
-                    className="ml-1 text-muted-foreground hover:text-foreground"
-                  >
-                    ×
-                  </button>
-                </Badge>
-              )}
-              
-              {statusFilter !== 'all' && (
-                <Badge variant="secondary" className="flex items-center gap-1">
-                  Status: {statusFilter === 'active' ? 'Active' : 'Inactive'}
-                  <button 
-                    onClick={() => setStatusFilter('all')}
-                    className="ml-1 text-muted-foreground hover:text-foreground"
-                  >
-                    ×
-                  </button>
-                </Badge>
-              )}
-              
-              {(searchTerm || statusFilter !== 'all') && (
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => {
-                    setSearchTerm('');
-                    setStatusFilter('all');
-                  }}
-                  className="h-7 text-xs"
+              <Badge variant="secondary" className="flex items-center gap-1">
+                Search: {searchTerm}
+                <button 
+                  onClick={() => setSearchTerm('')}
+                  className="ml-1 text-muted-foreground hover:text-foreground"
                 >
-                  Clear all
-                </Button>
-              )}
+                  ×
+                </button>
+              </Badge>
+              
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={clearFilters}
+                className="h-7 text-xs"
+              >
+                Clear all
+              </Button>
             </div>
           )}
         </div>
@@ -788,7 +859,6 @@ const Products = () => {
               className="mt-4"
               onClick={() => {
                 setSearchTerm('');
-                setStatusFilter('all');
               }}
             >
               Clear filters

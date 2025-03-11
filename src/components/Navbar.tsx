@@ -19,6 +19,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userRole, setUserRole] = useState<string | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -26,8 +27,8 @@ const Navbar = () => {
   const navItems = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-    { name: 'Products', path: '/products', icon: Package },
-    { name: 'Settings', path: '/settings', icon: Settings },
+    { name: 'Products', path: '/products', icon: Package }
+    // { name: 'Settings', path: '/settings', icon: Settings },
   ];
   
   useEffect(() => {
@@ -63,6 +64,22 @@ const Navbar = () => {
         authListener.subscription.unsubscribe();
       }
     };
+  }, []);
+  
+  useEffect(() => {
+    const checkRole = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        const { data: profile } = await supabase
+          .from('user_profiles')
+          .select('role')
+          .eq('email', session.user.email)
+          .single();
+        
+        setUserRole(profile?.role || null);
+      }
+    };
+    checkRole();
   }, []);
   
   const handleSignOut = async () => {
@@ -134,6 +151,18 @@ const Navbar = () => {
             >
               Sign In
             </Button>
+          )}
+          
+          {userRole === 'internal' && (
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">
+              Internal Access
+            </span>
+          )}
+          
+          {userRole === 'admin' && (
+            <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full">
+              Admin Access
+            </span>
           )}
           
           <Button 
