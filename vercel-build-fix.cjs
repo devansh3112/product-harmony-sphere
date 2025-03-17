@@ -18,10 +18,19 @@ if (fs.existsSync(nativePath)) {
   fs.copyFileSync(nativePath, `${nativePath}.backup`);
   
   // Replace the content with a version that always uses WebAssembly
+  // Use ES module export syntax to ensure compatibility with ES module imports
   const patchedContent = `
 // PATCHED FOR VERCEL - Always use WebAssembly
-const wasm = require('@rollup/wasm-node');
-module.exports = wasm;
+import wasm from '@rollup/wasm-node';
+
+// Export all the named exports that Rollup expects
+export const parse = wasm.parse;
+export const parseAsync = wasm.parseAsync;
+export const getAvailableFeatures = wasm.getAvailableFeatures;
+export const version = wasm.version;
+
+// Also export as default for CommonJS compatibility
+export default wasm;
 `;
   
   fs.writeFileSync(nativePath, patchedContent);
