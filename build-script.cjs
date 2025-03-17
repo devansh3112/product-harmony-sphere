@@ -100,10 +100,10 @@ if (fs.existsSync(parseAstPath)) {
   if (content.includes("import { parse, parseAsync } from '../../native.js';")) {
     console.log('📝 Patching parseAst.js...');
     
-    // Replace the import with a default import and destructuring
+    // Use createRequire to import CommonJS module
     content = content.replace(
       "import { parse, parseAsync } from '../../native.js';",
-      "import pkg from '../../native.js'; const { parse, parseAsync } = pkg;"
+      "import { createRequire } from 'module'; const require = createRequire(import.meta.url); const pkg = require('../../native.js'); const { parse, parseAsync } = pkg;"
     );
     
     fs.writeFileSync(parseAstPath, content);
