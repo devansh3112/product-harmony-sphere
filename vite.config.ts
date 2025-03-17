@@ -6,25 +6,29 @@ import path from "path";
 process.env.ROLLUP_WASM = "true";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: "::",
     port: 8080,
   },
-  plugins: [
-    react(),
-  ].filter(Boolean),
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    // Ensure Rollup doesn't try to use native dependencies
+    sourcemap: true,
     rollupOptions: {
-      external: [
-        // Add any problematic dependencies here
-      ]
+      // Ensure Rollup doesn't try to use native dependencies
+      onwarn(warning, warn) {
+        // Suppress certain warnings
+        if (warning.code === 'MODULE_LEVEL_DIRECTIVE' || 
+            warning.code === 'CIRCULAR_DEPENDENCY') {
+          return;
+        }
+        warn(warning);
+      }
     }
   }
-}));
+});
