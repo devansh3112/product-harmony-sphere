@@ -108,6 +108,8 @@ if (fs.existsSync(parseAstPath)) {
     
     fs.writeFileSync(parseAstPath, content);
     console.log('✅ parseAst.js patched successfully!');
+  } else {
+    console.log('⚠️ No matching import statement found in parseAst.js.');
   }
 }
 
