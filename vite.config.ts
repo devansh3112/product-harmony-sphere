@@ -2,6 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
+// Force using the WebAssembly version of Rollup for Vercel compatibility
+process.env.ROLLUP_WASM = "true";
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -16,4 +19,12 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    // Ensure Rollup doesn't try to use native dependencies
+    rollupOptions: {
+      external: [
+        // Add any problematic dependencies here
+      ]
+    }
+  }
 }));
