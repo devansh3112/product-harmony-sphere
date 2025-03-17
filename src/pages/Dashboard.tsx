@@ -271,10 +271,6 @@ const Dashboard = () => {
             <p className="text-muted-foreground mt-1">Real-time overview of your system</p>
           </div>
           <div className="mt-4 sm:mt-0 flex space-x-2">
-            <Button onClick={() => window.location.href = '/products/new'}>
-              <Plus size={16} className="mr-1" />
-              New Product
-            </Button>
             <Button variant="outline" onClick={() => window.location.href = '/users/new'}>
               <UserPlus size={16} className="mr-1" />
               New User

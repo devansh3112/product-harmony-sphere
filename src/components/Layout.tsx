@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -19,10 +18,8 @@ const Layout = ({ children }: LayoutProps) => {
       try {
         const { data } = await supabase.auth.getSession();
         
-        if (!data.session && !isAuthPage) {
-          // Redirect to auth page if not authenticated and not already on auth page
-          navigate('/auth');
-        } else if (data.session && isAuthPage) {
+        // Only redirect if authenticated and on auth page
+        if (data.session && isAuthPage) {
           // Redirect to dashboard if authenticated and on auth page
           navigate('/dashboard');
         }
@@ -38,9 +35,8 @@ const Layout = ({ children }: LayoutProps) => {
     
     // Set up auth state listener
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === 'SIGNED_OUT' && !isAuthPage) {
-        navigate('/auth');
-      } else if (event === 'SIGNED_IN' && isAuthPage) {
+      // Only redirect when signed in and on auth page
+      if (event === 'SIGNED_IN' && isAuthPage) {
         navigate('/dashboard');
       }
     });
@@ -50,10 +46,10 @@ const Layout = ({ children }: LayoutProps) => {
         authListener.subscription.unsubscribe();
       }
     };
-  }, [navigate, isAuthPage, location.pathname]);
+  }, [navigate, isAuthPage]);
   
-  if (isLoading && !isAuthPage) {
-    // Show a loading state while checking authentication
+  // Show loading state
+  if (isLoading && isAuthPage) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
@@ -62,12 +58,10 @@ const Layout = ({ children }: LayoutProps) => {
   }
   
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      {!isAuthPage && <Navbar />}
-      <main className="flex-1 w-full max-w-[1920px] mx-auto">
-        <div className="h-full w-full animate-fade-in">
-          {children}
-        </div>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1 pt-16">
+        {children}
       </main>
     </div>
   );

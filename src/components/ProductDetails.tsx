@@ -48,6 +48,21 @@ const sampleCategories = [
   { id: '3', name: 'Security' },
 ];
 
+// Define the product type explicitly
+interface Product {
+  id: string;
+  name: string;
+  shortDescription: string;
+  fullDescription: string;
+  features: string[];
+  useCases: string[];
+  competition: string[];
+  subscriptionType: string;
+  whitepaperLinks: { title: string; url: string; }[];
+  category: string;
+  isActive: boolean;
+}
+
 // This will be replaced by actual API call once backend is implemented
 const fetchProductDetails = async (id: string) => {
   console.log("Fetching product details for:", id);
@@ -62,7 +77,6 @@ const fetchProductDetails = async (id: string) => {
       features: [],
       competition: [],
       useCases: [],
-      clients: [],
       subscriptionType: '',
       whitepaperLinks: [],
       category: '',
@@ -75,31 +89,354 @@ const fetchProductDetails = async (id: string) => {
   
   // Mock data - will be replaced by actual API call
   switch (id) {
+    // Carbon Black Products
+    case '7': // Carbon Black App Control
+      return {
+        id: '7',
+        name: 'Carbon Black App Control',
+        shortDescription: 'Trusted software enforcement with flexible deployment',
+        fullDescription: 'Carbon Black App Control leverages a positive security model allowing only trusted software to run. It can be deployed on-premise, on private and public clouds.',
+        features: [
+          'Positive security model',
+          'On-premise and cloud deployment',
+          'Trusted software enforcement'
+        ],
+        useCases: [
+          'Reduce unplanned downtime of critical systems',
+          'Reduce costly re-imaging',
+          'Consolidates agents',
+          'Prevent unwanted changes to system configs',
+          'Protect legacy systems running on end-of-life operating systems',
+          'Manage software licenses accurately',
+          'File inventory',
+          'Application Vulnerability assessment',
+          'Regulatory'
+        ],
+        competition: [
+          'Ivanti',
+          'Airlock Digital',
+          'Tripwire'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/appcontrol/?lang=en-us' },
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/app-control.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/enterprise-protection/' },
+          { title: 'Technical Overview', url: 'https://docs.broadcom.com/docs/carbon-black-app-control-technical-overview' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '8': // Carbon Black EDR
+      return {
+        id: '8',
+        name: 'Carbon Black EDR',
+        shortDescription: 'Advanced threat detection and response',
+        fullDescription: 'Carbon Black EDR detects and responds to advanced attacks through a comprehensive and integrated approach for security teams. Carbon Black provides immediate access to the most complete picture of an attack, reducing lengthy investigations from days to minutes. Security teams can proactively hunt for threats, uncover suspicious behavior, disrupt active attacks, and address gaps in defenses before attackers can. Carbon Black EDR gives a proactive and unified defense against evolving threats.',
+        features: [
+          'Advanced Threat Detection',
+          'Incident Response',
+          'Threat Hunting',
+          'Malware Analysis',
+          'Compliance & Reporting',
+          'Insider Threat Detection',
+          'Data Exfiltration Detection',
+          'Operational Efficiency',
+          'Third-Party Risk Management',
+          'Ransomware Detection',
+          'Enhanced Visibility & Control'
+        ],
+        useCases: [
+          'Advanced Threat Detection',
+          'Incident Response',
+          'Threat Hunting',
+          'Malware Analysis',
+          'Compliance & Reporting',
+          'Insider Threat Detection',
+          'Data Exfiltration Detection',
+          'Operational Efficiency',
+          'Third-Party Risk Management',
+          'Ransomware Detection',
+          'Enhanced Visibility & Control'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/edr.html' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '9': // Carbon Black Endpoint Foundation
+      return {
+        id: '9',
+        name: 'Carbon Black Endpoint Foundation',
+        shortDescription: 'NGAV, Behavioral EDR, and Device Control',
+        fullDescription: 'NGAV, Behavioral EDR, Device Control',
+        features: [
+          'NGAV',
+          'Behavioral EDR',
+          'Device Control'
+        ],
+        useCases: [
+          'Ransomware Defense',
+          'Operational efficiency',
+          'Malware Analysis',
+          'Real Time monitoring',
+          'Data Exfiltration Prevention',
+          'Remote shell into endpoints for immediate action',
+          'Cloud-native platform with single agent & console'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '10': // Carbon Black Endpoint Advanced
+      return {
+        id: '10',
+        name: 'Carbon Black Endpoint Advanced',
+        shortDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, and Device Control',
+        fullDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, Device Control',
+        features: [
+          'Live Query',
+          'Vulnerability Management',
+          'NGAV',
+          'Behavioral EDR',
+          'Device Control'
+        ],
+        useCases: [
+          'Ransomware Defense',
+          'Operational efficiency',
+          'Malware Analysis',
+          'Real Time monitoring',
+          'Data Exfiltration Prevention',
+          'Remote shell into endpoints for immediate action',
+          'Cloud-native platform with single agent & console',
+          'Pull 1,500+ artifacts across all endpoints',
+          'Flexible query scheduler',
+          'Filterable & exportable results',
+          'Built-in vulnerability context and links to resources',
+          'Prioritized and scored based on risk of exploit'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '11': // Carbon Black Endpoint Enterprise
+      return {
+        id: '11',
+        name: 'Carbon Black Endpoint Enterprise',
+        shortDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, Device Control, and Enterprise EDR',
+        fullDescription: 'Live Query, Vulnerability Management, NGAV, Behavioral EDR, Device Control, Enterprise EDR',
+        features: [
+          'Live Query',
+          'Vulnerability Management',
+          'NGAV',
+          'Behavioral EDR',
+          'Device Control',
+          'Enterprise EDR'
+        ],
+        useCases: [
+          'Ransomware Defense',
+          'Operational efficiency',
+          'Malware Analysis',
+          'Real Time monitoring',
+          'Data Exfiltration Prevention',
+          'Remote shell into endpoints for immediate action',
+          'Cloud-native platform with single agent & console',
+          'Pull 1,500+ artifacts across all endpoints',
+          'Flexible query scheduler',
+          'Filterable & exportable results',
+          'Built-in vulnerability context and links to resources',
+          'Prioritized and scored based on risk of exploit',
+          'Continuous and centralized recording of endpoint activity',
+          'Out-of-the-box and customizable threat intelligence',
+          'Identity intelligence',
+          'Attack chain visualization and enterprise-wide search'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '12': // Carbon Black Workload Enterprise
+      return {
+        id: '12',
+        name: 'Carbon Black Workload Enterprise',
+        shortDescription: 'Enterprise EDR, NGAV, Behavioral EDR, Asset Inventory, Live Query, CIS Benchmarks, vCenter Plug-in, Lifecycle Management, and Vulnerability Management',
+        fullDescription: 'Enterprise EDR, NGAV, Behavioral EDR, Asset Inventory, Live Query, CIS Benchmarks, vCenter Plug-in, Lifecycle Management, Vulnerability Management',
+        features: [
+          'Enterprise EDR',
+          'NGAV',
+          'Behavioral EDR',
+          'Asset Inventory',
+          'Live Query',
+          'CIS Benchmarks',
+          'vCenter Plug-in',
+          'Lifecycle Management',
+          'Vulnerability Management'
+        ],
+        useCases: [
+          'Public cloud support and account onboarding',
+          'CIS benchmarks',
+          'Ransomware Defense',
+          'Operational efficiency',
+          'Malware Analysis',
+          'Real Time monitoring',
+          'Data Exfiltration Prevention',
+          'Remote shell into endpoints for immediate action',
+          'Cloud-native platform with single agent & console',
+          'Pull 1,500+ artifacts across all endpoints',
+          'Flexible query scheduler',
+          'Filterable & exportable results',
+          'Built-in vulnerability context and links to resources',
+          'Prioritized and scored based on risk of exploit',
+          'Continuous and centralized recording of endpoint activity',
+          'Out-of-the-box and customizable threat intelligence',
+          'Identity intelligence',
+          'Attack chain visualization and enterprise-wide search'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '13': // Carbon Black eNDR/XDR
+      return {
+        id: '13',
+        name: 'Carbon Black eNDR/XDR',
+        shortDescription: 'eNDR/XDR',
+        fullDescription: 'eNDR/XDR',
+        features: [
+          'eNDR/XDR'
+        ],
+        useCases: [
+          'Enterprise EDR',
+          'Network Visibility',
+          'Identity Intelligence'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    case '14': // Carbon Black Host Based Firewall
+      return {
+        id: '14',
+        name: 'Carbon Black Host Based Firewall',
+        shortDescription: 'Management console to monitor and control network connections from managed endpoints',
+        fullDescription: 'Management console to monitor and control network connections from managed endpoints',
+        features: [
+          'Flexible rule-based enforcement',
+          'Integrated into console policy workflows',
+          'Increased visibility into network and application behavior',
+          'Streamline enforcement by integrating with native OS firewall tools'
+        ],
+        useCases: [
+          'Flexible rule-based enforcement',
+          'Integrated into console policy workflows',
+          'Increased visibility into network and application behavior',
+          'Streamline enforcement by integrating with native OS firewall tools'
+        ],
+        competition: [
+          'Palo Alto',
+          'Crowdstrike',
+          'Sentinel One'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/carbon-black/cloud.html' },
+          { title: 'Developer Documentation', url: 'https://developer.carbonblack.com/reference/carbon-black-cloud' },
+          { title: 'Downloads', url: 'https://www.broadcom.com/support/download-search?pg=Carbon+Black&pf=Carbon+Black&pn=&pa=&po=&dk=&pl=&l=false' },
+          { title: 'Forrester Report', url: 'https://tei.forrester.com/go/carbonblack/cloud/index.html?lang=en-us' }
+        ],
+        category: 'Carbon Black',
+        isActive: true
+      };
+
+    // Other products (Existing)
     case '30': // Endpoint DLP
       return {
         id: '30',
-        name: 'Endpoint DLP',
-        shortDescription: 'Protect sensitive data on endpoints',
-        fullDescription: 'Symantec Endpoint DLP lets you identify sensitive information on endpoints and regulate its flow.',
+        name: 'Endpoint DLP (Endpoint Prevent and Endpoint Discover)',
+        shortDescription: 'Identifies sensitive information on endpoints (desktops/laptops) and monitors/regulates the flow of that information.',
+        fullDescription: 'Identifies sensitive information on endpoints (desktops/laptops) and monitors/regulates the flow of that information.',
         features: [
-          'Sensitive data identification',
-          'Data flow monitoring',
-          'Endpoint protection'
+          'Endpoint Prevent: Stops sensitive data from moving off endpoints (e.g., USB, network shares, applications).',
+          'Endpoint Discover: Scans internal hard drives to identify stored confidential data.'
         ],
         useCases: [
-          'Prevent data leakage',
-          'Monitor sensitive information',
-          'Regulate data transfer',
-          'Protect confidential files'
+          'Data loss prevention for sensitive information (e.g., credit card numbers, personal identification data).',
+          'High-performance parallel scanning of endpoints.',
+          'Automatic quarantine of confidential files.'
         ],
         competition: [
           'Forcepoint',
           'Zscaler',
           'Trend Micro'
-        ],
-        clients: [
-          'Aditya Birla Group',
-          'Ciinfotech'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -112,28 +449,22 @@ const fetchProductDetails = async (id: string) => {
     case '31': // Network DLP
       return {
         id: '31',
-        name: 'Network DLP',
-        shortDescription: 'Network-based data loss prevention',
-        fullDescription: 'Network DLP captures and analyzes traffic on network, detecting confidential data and traffic metadata over specified protocols.',
+        name: 'Network DLP (Network Monitor, Network Prevent for Email, Network Prevent for Web)',
+        shortDescription: 'Captures and analyzes network traffic to detect confidential data and metadata over protocols like SMTP, FTP, HTTP, and IM.',
+        fullDescription: 'Captures and analyzes network traffic to detect confidential data and metadata over protocols like SMTP, FTP, HTTP, and IM.',
         features: [
-          'Traffic analysis',
-          'Confidential data detection',
-          'Protocol monitoring'
+          'Network Monitor: Captures and analyzes traffic, detects confidential data, and filters low-risk traffic.',
+          'Network Prevent for Email: Monitors and blocks outbound email traffic in-line.',
+          'Network Prevent for Web: Integrates with HTTP/HTTPS/FTP proxy servers to reject or modify web requests containing confidential data.'
         ],
         useCases: [
-          'Detect confidential data transfer',
-          'Monitor network traffic',
-          'Prevent data exfiltration'
+          'Monitor and prevent data loss over email and web traffic.',
+          'Integrate with industry-standard mail transfer agents (MTAs) and proxy servers.'
         ],
         competition: [
           'Forcepoint',
           'Zscaler',
           'Trend Micro'
-        ],
-        clients: [
-          'Aditya Birla Group',
-          'Ciinfotech',
-          'Softcell'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -146,26 +477,20 @@ const fetchProductDetails = async (id: string) => {
     case '32': // Storage DLP
       return {
         id: '32',
-        name: 'Storage DLP',
-        shortDescription: 'Data loss prevention for storage',
-        fullDescription: 'DLP is a set of technologies, products, and techniques that are designed to stop sensitive information from leaving an organization.',
+        name: 'Storage DLP (Endpoint Discover and Network Discover)',
+        shortDescription: 'Locates exposed confidential data on network storage and endpoints.',
+        fullDescription: 'Locates exposed confidential data on network storage and endpoints.',
         features: [
-          'Data discovery',
-          'Data protection',
-          'Storage scanning'
+          'Network Discover Server: Scans selected targets (e.g., files, repositories) to detect confidential information.',
+          'Endpoint Discover: Scans endpoints for stored confidential data.'
         ],
         useCases: [
-          'Identify exposed confidential data',
-          'Secure sensitive information',
-          'Prevent data loss'
+          'Identify and secure exposed confidential data.',
+          'High-performance scanning of endpoints and network storage.'
         ],
         competition: [
           'Forcepoint',
           'Zscaler'
-        ],
-        clients: [
-          'Aditya Birla Group',
-          'Ciinfotech'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -178,27 +503,23 @@ const fetchProductDetails = async (id: string) => {
     case '33': // Cloud DLP (CASB DLP)
       return {
         id: '33',
-        name: 'CASB DLP',
-        shortDescription: 'Cloud-based data loss prevention',
-        fullDescription: 'DLP helps you understand how your sensitive information is being used, including what data is being handled and by whom.',
+        name: 'DLP Cloud (CASB DLP, Cloud Detection Service for Email, Cloud Detection Service for Web, OCR in the Cloud)',
+        shortDescription: 'Provides data loss prevention for cloud applications (e.g., Office 365, G-Suite, Box, Salesforce).',
+        fullDescription: 'Provides data loss prevention for cloud applications (e.g., Office 365, G-Suite, Box, Salesforce).',
         features: [
-          'Cloud application scanning',
-          'Real-time monitoring',
-          'Data protection'
+          'CASB DLP: Integrates with Symantec CloudSOC for SaaS applications.',
+          'Cloud Detection Service for Email: Detects confidential data in corporate email (Exchange, Office 365, Gmail).',
+          'Cloud Detection Service for Web: Monitors content in cloud applications via Cloud SWG.',
+          'OCR in the Cloud: Extracts text from images and PDFs for detection.'
         ],
         useCases: [
-          'Monitor cloud applications',
-          'Protect sensitive data',
-          'Prevent data loss in the cloud'
+          'Monitor and prevent data loss in cloud applications.',
+          'Real-time monitoring and detection of policy violations.',
+          'OCR for text extraction from images and PDFs.'
         ],
         competition: [
           'Forcepoint',
           'Zscaler'
-        ],
-        clients: [
-          'Aditya Birla Group',
-          'Ciinfotech',
-          'Softcell'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -232,17 +553,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Application-Control.html' }
@@ -274,12 +584,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'HCL',
-          'PNB',
-          'Axis Bank',
-          'Infosys'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -313,9 +617,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'Axis Bank (In Progress)'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Using-Threat-Defense-for-Active-Directory.html' }
@@ -347,17 +648,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -391,17 +681,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/about-symantec-ips-signatures-v36817114-d53e9297.html' }
@@ -433,17 +712,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -477,9 +745,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'PNB'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Integrations/unified-endpoint-management-v131977090-d4155e1035/configuring-zero-touch-onboarding-of-sep-mobile-app-for-mobile-devices.html' }
@@ -511,17 +776,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -555,17 +809,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Protection/antimalware-policy-advanced-settings-v128420816-d4155e13131/using-intensive-protection-settings-v119910353-d4155e29254.html' }
@@ -597,17 +840,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'Infosys',
-          'HCL',
-          'ICICI',
-          'HDFC',
-          'Axis Bank',
-          'Vodafone',
-          'PNB',
-          'SBI Life',
-          'Canara Bank'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -641,10 +873,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'Axis Bank',
-          'HCL'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://apidocs.securitycloud.symantec.com/#/doc?id=related_api' }
@@ -676,11 +904,6 @@ const fetchProductDetails = async (id: string) => {
           'Trellix',
           'Crowdstrike',
           'Trend Micro'
-        ],
-        clients: [
-          'PNB',
-          'Axis Bank',
-          'Canara Bank'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -714,11 +937,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'PNB',
-          'Axis Bank',
-          'Canara Bank'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html' }
@@ -751,11 +969,6 @@ const fetchProductDetails = async (id: string) => {
           'Crowdstrike',
           'Trend Micro'
         ],
-        clients: [
-          'PNB',
-          'Axis Bank',
-          'Canara Bank'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/endpoint-security/sescloud/Endpoint-Detection-and-Response.html' }
@@ -782,11 +995,6 @@ const fetchProductDetails = async (id: string) => {
         ],
         competition: [
           'Trend Micro'
-        ],
-        clients: [
-          'Axis Bank',
-          'HDFC',
-          'Infosys'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -817,9 +1025,6 @@ const fetchProductDetails = async (id: string) => {
           'ClamAV',
           'Trend Micro'
         ],
-        clients: [
-          'HCL'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/symantec-protection-engine/9-2-0/Related-Documents.html' }
@@ -848,11 +1053,6 @@ const fetchProductDetails = async (id: string) => {
           'Trend Micro',
           'Trellix'
         ],
-        clients: [
-          'PNB',
-          'Axis Bank',
-          'HCL'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://techdocs.broadcom.com/us/en/symantec-security-software/endpoint-security-and-management/data-center-security-(dcs)/6-9-3.html' }
@@ -865,32 +1065,26 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '60',
         name: 'DX NetOps',
-        shortDescription: 'Network management and monitoring',
-        fullDescription: 'Network events, fault management, performance monitoring, and configuration management.',
+        shortDescription: 'Provides network management, including events, fault management, performance monitoring, flow analysis, and configuration management.',
+        fullDescription: 'Provides network management, including events, fault management, performance monitoring, flow analysis, and configuration management.',
         features: [
-          'Network events tracking',
-          'Performance monitoring',
-          'Network flow analysis'
+          'Network Events & Fault Management',
+          'Network Performance Monitoring',
+          'Network Flow Analysis',
+          'Network Configuration Management'
         ],
         useCases: [
-          'Network performance optimization',
-          'Fault management',
-          'Configuration tracking'
+          'Monitor and manage network performance and faults.',
+          'Analyze network flow and configurations.'
         ],
         competition: [
           'Solarwinds',
           'HP NNM',
           'Manage Engine'
         ],
-        clients: [
-          'Wipro',
-          'Infosys',
-          'Bank Of Maharashtra',
-          'India Department of Post'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/netops-product-brief' }
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/netops-product-brief' }
         ],
         category: 'AOD',
         isActive: true
@@ -900,27 +1094,20 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '61',
         name: 'AppNeta',
-        shortDescription: 'Synthetic network monitoring',
-        fullDescription: 'Digital Experience Monitoring with hop-by-hop network path analysis.',
+        shortDescription: 'Provides synthetic network monitoring and digital experience monitoring.',
+        fullDescription: 'Provides synthetic network monitoring and digital experience monitoring.',
         features: [
-          'Digital experience monitoring',
-          'Network path analysis',
-          'Synthetic monitoring'
+          'Hop-by-hop network path analysis.'
         ],
         useCases: [
-          'Monitor digital experience',
-          'Analyze network paths',
-          'Synthetic network monitoring'
+          'Monitor network performance and digital experience.'
         ],
         competition: [
           'Cisco 1000E'
         ],
-        clients: [
-          'EXL Service'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/appneta-sb' }
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/appneta-sb' }
         ],
         category: 'AOD',
         isActive: true
@@ -930,30 +1117,25 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '62',
         name: 'Clarity',
-        shortDescription: 'Project portfolio management',
-        fullDescription: 'Centralized planning and prioritization, resource optimization, reporting, and insights.',
+        shortDescription: 'Provides project portfolio management (PPM) for centralized planning, resource optimization, and reporting.',
+        fullDescription: 'Provides project portfolio management (PPM) for centralized planning, resource optimization, and reporting.',
         features: [
-          'Centralized planning',
-          'Resource optimization',
-          'Reporting and insights'
+          'Centralized Planning and Prioritization',
+          'Resource Optimization',
+          'Reporting and Insights'
         ],
         useCases: [
-          'Plan and prioritize projects',
-          'Optimize resources',
-          'Generate reports and insights'
+          'Optimize project planning and resource allocation.',
+          'Generate insights and reports for decision-making.'
         ],
         competition: [
           'Planview',
           'ServiceNow',
           'Microsoft Project'
         ],
-        clients: [
-          'HCL',
-          'Infosys'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/clarity-ppm-product-brief' }
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/clarity-ppm-product-brief' }
         ],
         category: 'AOD',
         isActive: true
@@ -963,28 +1145,23 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '63',
         name: 'Rally',
-        shortDescription: 'Agile project management',
-        fullDescription: 'Agile development, release planning & management, defect management & quality assurance.',
+        shortDescription: 'Provides agile project management and software development lifecycle (SDLC) management.',
+        fullDescription: 'Provides agile project management and software development lifecycle (SDLC) management.',
         features: [
-          'Agile development',
-          'Release planning',
-          'Defect management'
+          'Agile Development',
+          'Release Planning & Management',
+          'Defect Management & Quality Assurance'
         ],
         useCases: [
-          'Manage agile projects',
-          'Plan and manage releases',
-          'Ensure quality assurance'
+          'Manage agile software development projects.',
+          'Plan releases and manage defects.'
         ],
         competition: [
           'Jira'
         ],
-        clients: [
-          'HCL',
-          'Infosys'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
-          { title: 'Technical Documentation', url: 'https://docs.broadcom.com/docs/rally-software-product-brief' }
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/docs/rally-software-product-brief' }
         ],
         category: 'AOD',
         isActive: true
@@ -994,25 +1171,23 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '64',
         name: 'Automic Automation',
-        shortDescription: 'IT process automation',
-        fullDescription: 'Manage complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.',
+        shortDescription: 'Manages complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.',
+        fullDescription: 'Manages complex workloads across platforms, ERPs, and business apps spanning on-premises, hybrid, and multi-cloud environments.',
         features: [
-          'Workload automation',
-          'Cross-platform management',
-          'Cloud automation'
+          'Job Scheduling and Automation',
+          'Workflow Automation',
+          'IT Service Management (ITSM) Integration',
+          'Cloud Automation',
+          'API Integration',
+          'Custom Scripting'
         ],
         useCases: [
-          'Automate IT processes',
-          'Manage complex workloads',
-          'Integrate across platforms'
+          'Automate IT processes and workflows.',
+          'Integrate with cloud and on-premises systems.'
         ],
         competition: [
           'BMC Control-M',
           'Stonebranch UAC'
-        ],
-        clients: [
-          'Infosys',
-          'Wipro'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -1026,26 +1201,20 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '65',
         name: 'Autosys Workload Automation',
-        shortDescription: 'Batch processing and data integration',
-        fullDescription: 'Automated data transfers, nightly reports & analytics, data backup & recovery.',
+        shortDescription: 'Provides batch processing and data integration for automated data transfers, nightly reports, and data backup.',
+        fullDescription: 'Provides batch processing and data integration for automated data transfers, nightly reports, and data backup.',
         features: [
-          'Batch processing',
-          'Data integration',
-          'Automated data transfers'
+          'Automated Data Transfers',
+          'Nightly Reports & Analytics',
+          'Data Backup & Recovery'
         ],
         useCases: [
-          'Automate data transfers',
-          'Generate nightly reports',
-          'Backup and recover data'
+          'Automate batch processing and data integration.',
+          'Generate nightly reports and perform data backups.'
         ],
         competition: [
           'BMC Control-M',
           'IBM Workload Scheduler'
-        ],
-        clients: [
-          'SBI',
-          'HDFC',
-          'Aditya Birla Sun Life'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -1075,10 +1244,6 @@ const fetchProductDetails = async (id: string) => {
           'Oracle',
           'IBM Db2'
         ],
-        clients: [
-          'SBI',
-          'Bank Of Baroda'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/ims-product-brief' }
@@ -1106,10 +1271,6 @@ const fetchProductDetails = async (id: string) => {
         competition: [
           'BMC',
           'IBM'
-        ],
-        clients: [
-          'SBI',
-          'Bank Of Baroda'
         ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
@@ -1139,10 +1300,6 @@ const fetchProductDetails = async (id: string) => {
           'Oracle',
           'IBM Db2'
         ],
-        clients: [
-          'SBI',
-          'Bank Of Baroda'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/ims-db-brief' }
@@ -1171,10 +1328,6 @@ const fetchProductDetails = async (id: string) => {
           'IBM CICS',
           'Oracle Tuxedo'
         ],
-        clients: [
-          'SBI',
-          'Bank Of Baroda'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/ims-tm-brief' }
@@ -1187,25 +1340,32 @@ const fetchProductDetails = async (id: string) => {
       return {
         id: '70',
         name: 'CA Service Desk',
-        shortDescription: 'Comprehensive IT service management platform',
-        fullDescription: 'Helps IT teams manage incidents, problems, changes, and service requests efficiently.',
+        shortDescription: 'A comprehensive ITSM tool for incident management, problem management, change management, and service catalog management.',
+        fullDescription: 'A comprehensive ITSM tool for incident management, problem management, change management, and service catalog management.',
         features: [
-          'Incident management',
-          'Problem management',
-          'Change management',
-          'Self-service portal'
+          'Incident Management',
+          'Problem Management',
+          'Change Management',
+          'Configuration Management',
+          'Service Catalog',
+          'Knowledge Management',
+          'Self-Service Portal',
+          'Automated Workflow and Incident Resolution',
+          'Reports & Analytics',
+          'Multi-Channel Support'
         ],
         useCases: [
-          'IT operations efficiency',
-          'Service interruption management',
-          'Customer support tracking'
+          'Enterprise IT Operations: Minimize service interruptions and maximize customer satisfaction.',
+          'Customer Support: Track, manage, and resolve customer issues across multiple channels.',
+          'Cloud Service Management: Handle incidents, requests, and service tasks for cloud-based services.',
+          'ITIL Framework Implementation: Align IT service practices with ITIL best practices.',
+          'Compliance and Audit Management: Track and report service metrics for regulatory compliance.'
         ],
         competition: [
           'ServiceNow',
           'Freshservice',
           'Zendesk'
         ],
-        clients: [],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/ca-service-desk-manager' }
@@ -1241,17 +1401,572 @@ const fetchProductDetails = async (id: string) => {
           'Ivanti',
           'Cherwell'
         ],
-        clients: [
-          'Major Financial Institutions',
-          'Healthcare Organizations',
-          'Government Agencies'
-        ],
         subscriptionType: 'Subscription',
         whitepaperLinks: [
           { title: 'Technical Documentation', url: 'https://docs.broadcom.com/doc/ca-service-management' },
           { title: 'Solution Brief', url: 'https://docs.broadcom.com/doc/ca-service-management-solution-brief' }
         ],
         category: 'ITSM',
+        isActive: true
+      };
+
+    // Proxy Products
+    case '80': // CloudSOC CASB
+      return {
+        id: '80',
+        name: 'CloudSOC CASB',
+        shortDescription: 'Protects against data leaks from endpoints by identifying unsanctioned Shadow IT and risky applications.',
+        fullDescription: 'Protects against data leaks from endpoints by identifying unsanctioned Shadow IT and risky applications.',
+        features: [
+          'Identifies and blocks risky applications and users.',
+          'Provides visibility into unsanctioned cloud applications.'
+        ],
+        useCases: [
+          'Prevent data leaks from endpoints.',
+          'Identify and block risky applications and users.'
+        ],
+        competition: [
+          'Forcepoint',
+          'Zscaler',
+          'Trend Micro'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '81': // Network Protection Suite (On-Premise)
+      return {
+        id: '81',
+        name: 'Network Protection Suite (On-Premise)',
+        shortDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet.',
+        fullDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet.',
+        features: [
+          'Centralized management, reporting, and threat intelligence.',
+          'SSL inspection, isolation, and CASB visibility and control.'
+        ],
+        useCases: [
+          'Secure internet connectivity for corporate sites, branch offices, and remote locations.',
+          'Protect networks, clients, and servers from malicious traffic.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '82': // Reverse Proxy
+      return {
+        id: '82',
+        name: 'Reverse Proxy (Network Protection Suite)',
+        shortDescription: 'Protects internally hosted web servers by securing and accelerating web applications and websites.',
+        fullDescription: 'Protects internally hosted web servers by securing and accelerating web applications and websites.',
+        features: [
+          'Protection for web applications and websites hosted on-premises or in data centers.'
+        ],
+        useCases: [
+          'Secure and accelerate internally hosted web applications.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '83': // Proxy on Cloud - SaaS
+      return {
+        id: '83',
+        name: 'Proxy on Cloud - SaaS (Network Protection Suite)',
+        shortDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet in a cloud-based solution.',
+        fullDescription: 'Provides safe internet browsing and SSL/TLS interception over the internet in a cloud-based solution.',
+        features: [
+          'Centralized management, reporting, and threat intelligence.',
+          'SSL inspection, isolation, and CASB visibility and control.'
+        ],
+        useCases: [
+          'Secure internet connectivity for corporate sites, branch offices, and remote locations.',
+          'Protect networks, clients, and servers from malicious traffic.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '84': // Cloud Firewall Service - SaaS
+      return {
+        id: '84',
+        name: 'Cloud Firewall Service - SaaS (Network Protection Suite)',
+        shortDescription: 'Provides granular control over non-HTTP/HTTPS protocols with firewall policies in the cloud.',
+        fullDescription: 'Provides granular control over non-HTTP/HTTPS protocols with firewall policies in the cloud.',
+        features: [
+          'Filter traffic based on user and layer four port.'
+        ],
+        useCases: [
+          'Control non-web-based traffic in the cloud.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '85': // Deep File Inspection - Content Analysis (On-Premise)
+      return {
+        id: '85',
+        name: 'Deep File Inspection - Content Analysis (On-Premise)',
+        shortDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads.',
+        fullDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads.',
+        features: [
+          'File-based malware detection and machine learning.'
+        ],
+        useCases: [
+          'Protect against malicious URLs and downloads.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '86': // Deep File Inspection - Content Analysis (Cloud/SaaS)
+      return {
+        id: '86',
+        name: 'Deep File Inspection - Content Analysis (Cloud/SaaS)',
+        shortDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads in a cloud-based solution.',
+        fullDescription: 'Provides content analysis to protect against threats from malicious URLs and downloads in a cloud-based solution.',
+        features: [
+          'File-based malware detection and machine learning.'
+        ],
+        useCases: [
+          'Protect against malicious URLs and downloads.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '87': // High Risk or Full Web Isolation
+      return {
+        id: '87',
+        name: 'High Risk or Full Web Isolation (Network Protection Suite)',
+        shortDescription: 'Protects against harmful and unknown web URL categories by executing web sessions away from endpoints.',
+        fullDescription: 'Protects against harmful and unknown web URL categories by executing web sessions away from endpoints.',
+        features: [
+          'Execution of web sessions away from endpoints.',
+          'Safe rendering of information to users\' browsers.'
+        ],
+        useCases: [
+          'Prevent zero-day malware from reaching user devices.',
+          'Isolate uncategorized or high-risk websites.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '88': // Malware Analysis - Only on SaaS
+      return {
+        id: '88',
+        name: 'Malware Analysis - Only on SaaS (Network Protection Suite)',
+        shortDescription: 'Provides sandboxing for unknown threats in a cloud-based solution.',
+        fullDescription: 'Provides sandboxing for unknown threats in a cloud-based solution.',
+        features: [
+          'File-based malware detection, machine learning, and cloud-based sandboxing.'
+        ],
+        useCases: [
+          'Detect and analyze unknown threats in the cloud.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope',
+          'Forcepoint'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '89': // ZTNA
+      return {
+        id: '89',
+        name: 'ZTNA (Network Protection Suite)',
+        shortDescription: 'Provides secure private access to resources hosted on-premise and SaaS.',
+        fullDescription: 'Provides secure private access to resources hosted on-premise and SaaS.',
+        features: [
+          'Eliminates inbound connections to customer networks.',
+          'Creates a software-defined perimeter (SDP) between users and applications.'
+        ],
+        useCases: [
+          'Secure access to applications without VPNs.',
+          'Make applications invisible to attackers.'
+        ],
+        competition: [
+          'Zscaler',
+          'Netskope'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://docs.broadcom.com/doc/symantec-network-protection-product-brief' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    case '90': // SSLV
+      return {
+        id: '90',
+        name: 'SSLV (SSL Visibility Appliance)',
+        shortDescription: 'Provides SSL/TLS decryption for visibility into encrypted traffic.',
+        fullDescription: 'Provides SSL/TLS decryption for visibility into encrypted traffic.',
+        features: [
+          'Identifies and decrypts SSL connections across all network ports.'
+        ],
+        useCases: [
+          'Ensure attacks cannot slip by undetected in encrypted traffic.'
+        ],
+        competition: [
+          'Gigamon'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [
+          { title: 'Data Sheet', url: 'https://docs.broadcom.com/doc/SSL-Visibility-DS' }
+        ],
+        category: 'Proxy',
+        isActive: true
+      };
+
+    // IMS (Identity Management Solutions) Products
+    case '100': // Security Analytics
+      return {
+        id: '100',
+        name: 'Security Analytics',
+        shortDescription: 'Improves network visibility, inspection, and forensics to accelerate incident response and remediation.',
+        fullDescription: 'Improves network visibility, inspection, and forensics to accelerate incident response and remediation.',
+        features: [
+          'Threat Hunting',
+          'Network Visibility',
+          'Forensics and Incident Response'
+        ],
+        useCases: [
+          'Accelerate incident response and remediation.',
+          'Improve network visibility and inspection.'
+        ],
+        competition: [
+          'Qradar',
+          'Vehere',
+          'ExtraHop'
+        ],
+        subscriptionType: 'Hardware and Subscription',
+        whitepaperLinks: [
+          { title: 'Product Brief', url: 'https://www.broadcom.com/products/cybersecurity/network/forensics-security-analytics' }
+        ],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '101': // SMG / ESS (Email Security)
+      return {
+        id: '101',
+        name: 'SMG / ESS (Email Security)',
+        shortDescription: 'Provides email protection and antispam capabilities.',
+        fullDescription: 'Provides email protection and antispam capabilities.',
+        features: [
+          'Email protection',
+          'Antispam'
+        ],
+        useCases: [
+          'Protect against email threats and spam.'
+        ],
+        competition: [
+          'Proofpoint',
+          'Barracuda',
+          'Trend Micro',
+          'Trellix'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '102': // PGP Endpoint
+      return {
+        id: '102',
+        name: 'PGP Endpoint',
+        shortDescription: 'Provides drive encryption and whole disk encryption for data protection.',
+        fullDescription: 'Provides drive encryption and whole disk encryption for data protection.',
+        features: [
+          'Drive Encryption',
+          'Whole Disk Encryption'
+        ],
+        useCases: [
+          'Protect sensitive data on endpoints.'
+        ],
+        competition: [
+          'Trellix',
+          'ServiceNow'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '103': // VIP (Multifactor Authentication)
+      return {
+        id: '103',
+        name: 'VIP (Multifactor Authentication)',
+        shortDescription: 'Provides multifactor authentication for application protection.',
+        fullDescription: 'Provides multifactor authentication for application protection.',
+        features: [
+          'Multifactor Authentication'
+        ],
+        useCases: [
+          'Secure access to applications with MFA.'
+        ],
+        competition: [
+          'Mic'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '104': // SiteMinder
+      return {
+        id: '104',
+        name: 'SiteMinder',
+        shortDescription: 'Provides authentication and single sign-on (SSO) capabilities.',
+        fullDescription: 'Provides authentication and single sign-on (SSO) capabilities.',
+        features: [
+          'SSO',
+          'OAUTH',
+          'SAML'
+        ],
+        useCases: [
+          'Secure access to applications with SSO and SAML.'
+        ],
+        competition: [
+          'ForgeRock',
+          'ADFS',
+          'Ping Access'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '105': // VIP Authentication Hub
+      return {
+        id: '105',
+        name: 'VIP Authentication Hub',
+        shortDescription: 'Provides authentication with SSO, OAUTH, SAML, FIDO2, MFA, and risk-based authentication.',
+        fullDescription: 'Provides authentication with SSO, OAUTH, SAML, FIDO2, MFA, and risk-based authentication.',
+        features: [
+          'SSO',
+          'OAUTH',
+          'SAML',
+          'FIDO2',
+          'MFA',
+          'Risk-Based Authentication'
+        ],
+        useCases: [
+          'Secure access to applications with advanced authentication methods.'
+        ],
+        competition: [
+          'Okta',
+          'Auth0',
+          'Ping Identity',
+          'EntraID'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '106': // VIP SaaS
+      return {
+        id: '106',
+        name: 'VIP SaaS',
+        shortDescription: 'Provides cloud-based authentication with SSO, OAUTH, SAML, FIDO2, and MFA.',
+        fullDescription: 'Provides cloud-based authentication with SSO, OAUTH, SAML, FIDO2, and MFA.',
+        features: [
+          'SSO',
+          'OAUTH',
+          'SAML',
+          'FIDO2',
+          'MFA'
+        ],
+        useCases: [
+          'Secure access to cloud applications with MFA and SSO.'
+        ],
+        competition: [
+          'Okta',
+          'Auth0',
+          'Ping Identity',
+          'EntraID'
+        ],
+        subscriptionType: 'Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '107': // Advanced Authentication
+      return {
+        id: '107',
+        name: 'Advanced Authentication',
+        shortDescription: 'Provides authentication with SSO and MFA.',
+        fullDescription: 'Provides authentication with SSO and MFA.',
+        features: [
+          'SSO',
+          'MFA'
+        ],
+        useCases: [
+          'Secure access to applications with SSO and MFA.'
+        ],
+        competition: [
+          'Okta',
+          'EntraID',
+          'Cisco Duo'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '108': // Identity Suite
+      return {
+        id: '108',
+        name: 'Identity Suite',
+        shortDescription: 'Provides identity management and governance, including identity lifecycle management, user provisioning, and identity governance.',
+        fullDescription: 'Provides identity management and governance, including identity lifecycle management, user provisioning, and identity governance.',
+        features: [
+          'Identity Lifecycle Management',
+          'Identity Governance',
+          'User Service Portal',
+          'User Provisioning'
+        ],
+        useCases: [
+          'Manage identity lifecycle and governance.',
+          'Provision users and manage access.'
+        ],
+        competition: [
+          'Sailpoint',
+          'Azure AD',
+          'Ping Identity'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '109': // PAM (Password Management)
+      return {
+        id: '109',
+        name: 'PAM (Password Management)',
+        shortDescription: 'Provides password vault and privilege access management.',
+        fullDescription: 'Provides password vault and privilege access management.',
+        features: [
+          'Password Vault',
+          'Privilege Access Management'
+        ],
+        useCases: [
+          'Secure privileged access and manage passwords.'
+        ],
+        competition: [
+          'Cyberark',
+          'Hashcorp'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
+        isActive: true
+      };
+
+    case '110': // CA Directory
+      return {
+        id: '110',
+        name: 'CA Directory',
+        shortDescription: 'Provides user directory services.',
+        fullDescription: 'Provides user directory services.',
+        features: [
+          'User Directory'
+        ],
+        useCases: [
+          'Manage user directories for authentication and access.'
+        ],
+        competition: [
+          'RHDS',
+          'AD',
+          'Oracle DSEE',
+          'OpenLDAP'
+        ],
+        subscriptionType: 'Perm/Subscription',
+        whitepaperLinks: [],
+        category: 'IMS',
         isActive: true
       };
 
@@ -1277,11 +1992,6 @@ const fetchProductDetails = async (id: string) => {
           "Enterprise security",
           "Network management",
           "Data protection"
-        ],
-        clients: [
-          "Company A",
-          "Company B",
-          "Company C"
         ],
         subscriptionType: "Subscription",
         whitepaperLinks: [
@@ -1310,7 +2020,7 @@ const ProductDetails = () => {
   // For form loading state
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { data: product, isLoading, error } = useQuery({
+  const { data: product, isLoading, error } = useQuery<Product>({
     queryKey: ['product', id],
     queryFn: () => fetchProductDetails(id || 'new'),
     enabled: !!id
@@ -1397,22 +2107,22 @@ const ProductDetails = () => {
   // Show loading skeleton
   if (isLoading) {
     return (
-      <div className="container mx-auto py-12 px-4">
+      <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-7xl">
         <Button 
           variant="ghost" 
-          className="mb-6" 
+          className="mb-4 sm:mb-6" 
           onClick={() => navigate(-1)}
         >
           <ArrowLeft size={16} className="mr-2" />
           Back
         </Button>
         
-        <div className="grid grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8">
           <div>
-            <Skeleton className="h-12 w-3/4 mb-4" />
-            <Skeleton className="h-6 w-full mb-2" />
-            <Skeleton className="h-6 w-2/3 mb-8" />
-            <Skeleton className="h-40 w-full" />
+            <Skeleton className="h-8 sm:h-10 md:h-12 w-full sm:w-3/4 mb-2 sm:mb-4" />
+            <Skeleton className="h-4 sm:h-5 md:h-6 w-full mb-2" />
+            <Skeleton className="h-4 sm:h-5 md:h-6 w-full sm:w-2/3 mb-4 sm:mb-6 md:mb-8" />
+            <Skeleton className="h-32 sm:h-36 md:h-40 w-full" />
           </div>
         </div>
       </div>
@@ -1422,9 +2132,9 @@ const ProductDetails = () => {
   // Show error message
   if (error || !product) {
     return (
-      <div className="container mx-auto py-12 px-4 text-center">
-        <h2 className="text-2xl font-semibold mb-4">Error loading product</h2>
-        <p className="text-muted-foreground mb-6">
+      <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 text-center max-w-3xl">
+        <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Error loading product</h2>
+        <p className="text-muted-foreground mb-4 sm:mb-6">
           We couldn't find the product you're looking for.
         </p>
         <Button onClick={() => navigate('/products')}>
@@ -1437,28 +2147,29 @@ const ProductDetails = () => {
   // Render form for new/edit product
   if (isNew || isEditing) {
     return (
-      <div className="container mx-auto py-12 px-4">
-        <div className="flex items-center justify-between mb-6">
+      <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-5xl">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 sm:mb-6 gap-4">
           <Button 
             variant="ghost" 
             onClick={() => isNew ? navigate('/products') : setIsEditing(false)}
+            className="w-full sm:w-auto"
           >
             <ArrowLeft size={16} className="mr-2" />
             {isNew ? 'Back to Products' : 'Cancel Editing'}
           </Button>
-          <h1 className="text-2xl font-semibold">{isNew ? 'Create New Product' : 'Edit Product'}</h1>
+          <h1 className="text-xl sm:text-2xl font-semibold">{isNew ? 'Create New Product' : 'Edit Product'}</h1>
         </div>
         
-        <Card>
-          <CardHeader>
-            <CardTitle>{isNew ? 'Product Details' : `Editing: ${product.name}`}</CardTitle>
+        <Card className="overflow-hidden">
+          <CardHeader className="px-4 sm:px-6">
+            <CardTitle className="text-lg sm:text-xl">{isNew ? 'Product Details' : `Editing: ${product.name}`}</CardTitle>
             <CardDescription>
               Fill in the information below to {isNew ? 'create a new product' : 'update this product'}.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="px-4 sm:px-6">
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
                 <FormField
                   control={form.control}
                   name="name"
@@ -1468,7 +2179,7 @@ const ProductDetails = () => {
                       <FormControl>
                         <Input placeholder="Enter product name" {...field} />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-xs sm:text-sm">
                         The name of your product as it will appear to customers.
                       </FormDescription>
                       <FormMessage />
@@ -1486,9 +2197,10 @@ const ProductDetails = () => {
                         <Textarea 
                           placeholder="Brief description of the product" 
                           {...field} 
+                          className="min-h-[80px] sm:min-h-[100px]"
                         />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-xs sm:text-sm">
                         A concise summary that will appear in product listings.
                       </FormDescription>
                       <FormMessage />
@@ -1505,11 +2217,11 @@ const ProductDetails = () => {
                       <FormControl>
                         <Textarea 
                           placeholder="Detailed description of the product" 
-                          className="min-h-[150px]"
+                          className="min-h-[120px] sm:min-h-[150px]"
                           {...field} 
                         />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-xs sm:text-sm">
                         Comprehensive details about your product's features and benefits.
                       </FormDescription>
                       <FormMessage />
@@ -1517,7 +2229,7 @@ const ProductDetails = () => {
                   )}
                 />
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <FormField
                     control={form.control}
                     name="category"
@@ -1541,7 +2253,7 @@ const ProductDetails = () => {
                             ))}
                           </SelectContent>
                         </Select>
-                        <FormDescription>
+                        <FormDescription className="text-xs sm:text-sm">
                           The category this product belongs to.
                         </FormDescription>
                         <FormMessage />
@@ -1571,7 +2283,7 @@ const ProductDetails = () => {
                             <SelectItem value="Trial">Free Trial</SelectItem>
                           </SelectContent>
                         </Select>
-                        <FormDescription>
+                        <FormDescription className="text-xs sm:text-sm">
                           The subscription model for this product.
                         </FormDescription>
                         <FormMessage />
@@ -1581,36 +2293,39 @@ const ProductDetails = () => {
                 </div>
                 
                 {/* Whitepaper Links Section */}
-                <div className="space-y-4">
-                  <h3 className="text-lg font-medium">Whitepaper Links</h3>
-                  <div className="border rounded-md p-4 space-y-4">
+                <div className="space-y-3 sm:space-y-4">
+                  <h3 className="text-base sm:text-lg font-medium">Whitepaper Links</h3>
+                  <div className="border rounded-md p-3 sm:p-4 space-y-3 sm:space-y-4">
                     {whitepaperLinks.map((link, index) => (
-                      <div key={index} className="flex justify-between items-center border-b pb-2">
-                        <div>
-                          <p className="font-medium">{link.title}</p>
-                          <p className="text-sm text-muted-foreground truncate">{link.url}</p>
+                      <div key={index} className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b pb-2 space-y-2 sm:space-y-0">
+                        <div className="truncate">
+                          <p className="font-medium text-sm sm:text-base">{link.title}</p>
+                          <p className="text-xs sm:text-sm text-muted-foreground truncate">{link.url}</p>
                         </div>
                         <Button 
                           type="button" 
                           variant="ghost" 
                           size="sm"
                           onClick={() => removeWhitepaperLink(index)}
+                          className="self-end sm:self-auto"
                         >
                           Remove
                         </Button>
                       </div>
                     ))}
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <Input
                         placeholder="Link Title"
                         value={newLinkTitle}
                         onChange={(e) => setNewLinkTitle(e.target.value)}
+                        className="text-sm"
                       />
                       <Input
                         placeholder="URL (https://...)"
                         value={newLinkUrl}
                         onChange={(e) => setNewLinkUrl(e.target.value)}
+                        className="text-sm"
                       />
                     </div>
                     <Button 
@@ -1619,6 +2334,7 @@ const ProductDetails = () => {
                       size="sm"
                       onClick={addWhitepaperLink}
                       disabled={!newLinkTitle || !newLinkUrl}
+                      className="w-full sm:w-auto"
                     >
                       <Link size={16} className="mr-2" />
                       Add Whitepaper Link
@@ -1630,10 +2346,10 @@ const ProductDetails = () => {
                   control={form.control}
                   name="isActive"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                    <FormItem className="flex flex-row items-center justify-between rounded-lg border p-3 sm:p-4">
                       <div className="space-y-0.5">
-                        <FormLabel className="text-base">Product Status</FormLabel>
-                        <FormDescription>
+                        <FormLabel className="text-sm sm:text-base">Product Status</FormLabel>
+                        <FormDescription className="text-xs sm:text-sm">
                           Set whether this product is currently active and visible to customers.
                         </FormDescription>
                       </div>
@@ -1647,16 +2363,21 @@ const ProductDetails = () => {
                   )}
                 />
                 
-                <div className="flex justify-end space-x-4">
+                <div className="flex flex-col sm:flex-row sm:justify-end gap-3 sm:gap-4 pt-2 sm:pt-4">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={() => isNew ? navigate('/products') : setIsEditing(false)}
                     disabled={isSubmitting}
+                    className="w-full sm:w-auto order-2 sm:order-1"
                   >
                     Cancel
                   </Button>
-                  <Button type="submit" disabled={isSubmitting}>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto order-1 sm:order-2"
+                  >
                     {isSubmitting ? 'Saving...' : isNew ? 'Create Product' : 'Save Changes'}
                   </Button>
                 </div>
@@ -1670,25 +2391,23 @@ const ProductDetails = () => {
   
   // Render product details view
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-6 sm:py-8 md:py-12 px-4 max-w-6xl">
       <Button 
         variant="ghost" 
-        className="mb-6" 
+        className="mb-4 sm:mb-6" 
         onClick={() => navigate('/products')}
       >
         <ArrowLeft size={16} className="mr-2" />
         Back to Products
       </Button>
       
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-semibold">{product.name}</h1>
-        <Button onClick={() => setIsEditing(true)}>
-          Edit Product
-        </Button>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 gap-3">
+        <h1 className="text-2xl sm:text-3xl font-semibold">{product.name}</h1>
+        {/* Edit Product button removed */}
       </div>
       
-      <Card>
-        <CardContent className="p-6">
+      <Card className="overflow-hidden">
+        <CardContent className="p-4 sm:p-6">
           <div className="flex flex-wrap gap-2 mb-4">
             {product.category && (
               <Badge variant="outline">{product.category}</Badge>
@@ -1701,29 +2420,29 @@ const ProductDetails = () => {
             )}
           </div>
           
-          <p className="text-xl text-muted-foreground mb-6">
+          <p className="text-lg sm:text-xl text-muted-foreground mb-6">
             {product.shortDescription}
           </p>
           
-          <Tabs defaultValue="overview" className="mb-8">
-            <TabsList className="mb-4">
+          <Tabs defaultValue="overview" className="mb-6 sm:mb-8">
+            <TabsList className="inline-flex border-b rounded-none bg-muted/40 mb-4 ml-0">
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="features">Features</TabsTrigger>
+              <TabsTrigger value="competition">Competition</TabsTrigger>
               <TabsTrigger value="use-cases">Use Cases</TabsTrigger>
-              <TabsTrigger value="clients">Clients</TabsTrigger>
               <TabsTrigger value="documentation">Documentation</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="overview" className="space-y-4">
+            <TabsContent value="overview" className="space-y-4 mt-4 sm:mt-6">
               <div>
-                <h3 className="text-lg font-medium mb-2">Description</h3>
-                <p className="text-muted-foreground">{product.fullDescription}</p>
+                <h3 className="text-base sm:text-lg font-medium mb-2">Description</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">{product.fullDescription}</p>
               </div>
               
               {product.competition && product.competition.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-medium mb-2">Competition</h3>
-                  <ul className="list-disc list-inside text-muted-foreground">
+                  <h3 className="text-base sm:text-lg font-medium mb-2">Competition</h3>
+                  <ul className="list-disc list-inside text-sm sm:text-base text-muted-foreground">
                     {product.competition.map((competitor, index) => (
                       <li key={index}>{competitor}</li>
                     ))}
@@ -1732,30 +2451,43 @@ const ProductDetails = () => {
               )}
             </TabsContent>
             
-            <TabsContent value="features" className="space-y-4">
-              <h3 className="text-lg font-medium mb-2">Key Features</h3>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <TabsContent value="features" className="space-y-4 mt-4 sm:mt-6">
+              <h3 className="text-base sm:text-lg font-medium mb-2">Key Features</h3>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {product.features && product.features.map((feature, index) => (
                   <li key={index} className="flex items-start">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center mr-3 mt-0.5">
-                      <Layers size={16} className="text-primary" />
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-primary/10 flex items-center justify-center mr-2 sm:mr-3 mt-0.5">
+                      <Layers size={14} className="text-primary sm:w-4 sm:h-4" />
                     </div>
                     <div>
-                      <p>{feature}</p>
+                      <p className="text-sm sm:text-base">{feature}</p>
                     </div>
                   </li>
                 ))}
               </ul>
             </TabsContent>
             
-            <TabsContent value="use-cases" className="space-y-4">
-              <h3 className="text-lg font-medium mb-2">Common Use Cases</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <TabsContent value="competition" className="space-y-4 mt-4 sm:mt-6">
+              <h3 className="text-base sm:text-lg font-medium mb-2">Competitors</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                {product.competition && product.competition.map((competitor, index) => (
+                  <Card key={index} className="bg-background/50">
+                    <CardContent className="p-3 sm:p-4">
+                      <h4 className="font-medium text-sm sm:text-base">{competitor}</h4>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="use-cases" className="space-y-4 mt-4 sm:mt-6">
+              <h3 className="text-base sm:text-lg font-medium mb-2">Common Use Cases</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {product.useCases && product.useCases.map((useCase, index) => (
                   <Card key={index} className="bg-background/50">
-                    <CardContent className="pt-6">
-                      <h4 className="font-medium mb-2">{useCase}</h4>
-                      <p className="text-sm text-muted-foreground">
+                    <CardContent className="p-3 sm:p-4 sm:pt-5">
+                      <h4 className="font-medium text-sm sm:text-base mb-1 sm:mb-2">{useCase}</h4>
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         Implementation example for {useCase.toLowerCase()}.
                       </p>
                     </CardContent>
@@ -1764,37 +2496,18 @@ const ProductDetails = () => {
               </div>
             </TabsContent>
             
-            <TabsContent value="clients" className="space-y-4">
-              <h3 className="text-lg font-medium mb-2">Client Success Stories</h3>
-              <div className="space-y-4">
-                {product.clients && product.clients.map((client, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center mr-3">
-                      <Users size={16} />
-                    </div>
-                    <div>
-                      <h4 className="font-medium">{client}</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Successfully implemented {product.name} for their operations.
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-            
-            <TabsContent value="documentation" className="space-y-4">
-              <h3 className="text-lg font-medium mb-2">Whitepapers & Documentation</h3>
+            <TabsContent value="documentation" className="space-y-4 mt-4 sm:mt-6">
+              <h3 className="text-base sm:text-lg font-medium mb-2">Whitepapers & Documentation</h3>
               {product.whitepaperLinks && product.whitepaperLinks.length > 0 ? (
                 <div className="space-y-3">
                   {product.whitepaperLinks.map((link, index) => (
                     <Card key={index} className="bg-background/50">
-                      <CardContent className="pt-4 pb-4 flex justify-between items-center">
-                        <div className="flex items-center">
-                          <FileText size={20} className="mr-3 text-purple-600" />
-                          <div>
-                            <h4 className="font-medium">{link.title}</h4>
-                            <p className="text-sm text-muted-foreground truncate max-w-md">
+                      <CardContent className="p-3 sm:p-4 flex flex-col sm:flex-row justify-between sm:items-center gap-3">
+                        <div className="flex items-start sm:items-center">
+                          <FileText size={18} className="mr-3 text-purple-600 flex-shrink-0 mt-1 sm:mt-0" />
+                          <div className="w-full overflow-hidden">
+                            <h4 className="font-medium text-sm sm:text-base">{link.title}</h4>
+                            <p className="text-xs sm:text-sm text-muted-foreground truncate max-w-[200px] sm:max-w-md">
                               {link.url}
                             </p>
                           </div>
@@ -1803,6 +2516,7 @@ const ProductDetails = () => {
                           variant="outline" 
                           size="sm"
                           onClick={() => window.open(link.url, '_blank')}
+                          className="self-end sm:self-auto"
                         >
                           View
                         </Button>
@@ -1811,24 +2525,28 @@ const ProductDetails = () => {
                   ))}
                 </div>
               ) : (
-                <p className="text-muted-foreground">No documentation available for this product.</p>
+                <p className="text-sm sm:text-base text-muted-foreground">No documentation available for this product.</p>
               )}
             </TabsContent>
           </Tabs>
           
-          <Separator className="my-8" />
+          <Separator className="my-6 sm:my-8" />
           
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
             <Button 
               variant="outline" 
               onClick={() => navigate('/products')}
+              className="w-full sm:w-auto order-2 sm:order-1"
             >
               <ArrowLeft size={16} className="mr-2" />
               Back to Products
             </Button>
             
             {product.whitepaperLinks && product.whitepaperLinks.length > 0 && (
-              <Button onClick={() => window.open(product.whitepaperLinks[0].url, '_blank')}>
+              <Button 
+                onClick={() => window.open(product.whitepaperLinks[0].url, '_blank')}
+                className="w-full sm:w-auto order-1 sm:order-2"
+              >
                 <FileText size={16} className="mr-2" />
                 View Documentation
               </Button>

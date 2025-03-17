@@ -16,6 +16,7 @@ import { Plus, Filter, Search, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
+import { calculateRelevanceScore } from '@/lib/search-utils';
 
 // Sample categories data
 const sampleCategories = [
@@ -531,84 +532,27 @@ const sampleCategories = [
   }
 ];
 
-// Add these utility functions at the top level
-const calculateRelevanceScore = (product: any, searchTerms: string[]) => {
-  let score = 0;
-  const name = product.name.toLowerCase();
-  const description = product.description.toLowerCase();
-
-  for (const term of searchTerms) {
-    // Exact matches in name are weighted highest
-    if (name.includes(term)) score += 3;
-    // Exact matches in description are weighted medium
-    if (description.includes(term)) score += 2;
-    
-    // Fuzzy matching for typos and partial matches
-    const nameParts = name.split(' ');
-    const descParts = description.split(' ');
-    
-    // Check for partial matches in name
-    for (const part of nameParts) {
-      if (part.startsWith(term) || term.startsWith(part)) score += 1;
-      if (levenshteinDistance(term, part) <= 2) score += 0.5;
-    }
-    
-    // Check for partial matches in description
-    for (const part of descParts) {
-      if (part.startsWith(term) || term.startsWith(part)) score += 0.5;
-      if (levenshteinDistance(term, part) <= 2) score += 0.25;
-    }
-  }
-  
-  return score;
-};
-
-const levenshteinDistance = (str1: string, str2: string) => {
-  const track = Array(str2.length + 1).fill(null).map(() =>
-    Array(str1.length + 1).fill(null));
-  
-  for (let i = 0; i <= str1.length; i += 1) {
-    track[0][i] = i;
-  }
-  for (let j = 0; j <= str2.length; j += 1) {
-    track[j][0] = j;
-  }
-
-  for (let j = 1; j <= str2.length; j += 1) {
-    for (let i = 1; i <= str1.length; i += 1) {
-      const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
-      track[j][i] = Math.min(
-        track[j][i - 1] + 1,
-        track[j - 1][i] + 1,
-        track[j - 1][i - 1] + indicator
-      );
-    }
-  }
-  
-  return track[str2.length][str1.length];
-};
-
 const Products = () => {
   const [categories, setCategories] = useState(sampleCategories);
   const [filteredCategories, setFilteredCategories] = useState(sampleCategories);
   const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortOrder, setSortOrder] = useState<'relevance' | 'name' | 'category'>('relevance');
   const [minRelevanceScore, setMinRelevanceScore] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   
-  // Enhanced debounce with configurable delay
-  useEffect(() => {
-    const DEBOUNCE_DELAY = searchTerm.length > 3 ? 150 : 300; // Faster debounce for longer queries
-    const timer = setTimeout(() => {
-      setDebouncedSearchTerm(searchTerm);
-    }, DEBOUNCE_DELAY);
-
-    return () => clearTimeout(timer);
-  }, [searchTerm]);
-
+  // Import the searchOpen state and setSearchOpen function from a context or global state
+  // This would normally be done through a context provider, but for simplicity, let's access window
+  const openGlobalSearch = () => {
+    // Trigger the global search dialog
+    const event = new KeyboardEvent('keydown', {
+      key: 'k',
+      ctrlKey: true
+    });
+    window.dispatchEvent(event);
+  };
+  
   // Enhanced search with relevance scoring and fuzzy matching
   const searchProduct = React.useCallback((product: any, term: string) => {
     if (!term) return { matches: true, score: 0 };
@@ -623,12 +567,12 @@ const Products = () => {
     
     return { matches, score };
   }, [minRelevanceScore]);
-
+  
   // Enhanced filtering with caching
   const filterCache = React.useRef(new Map());
   
   useEffect(() => {
-    const cacheKey = `${debouncedSearchTerm}-${selectedCategory}-${sortOrder}`;
+    const cacheKey = `${searchTerm}-${selectedCategory}-${sortOrder}`;
     
     if (filterCache.current.has(cacheKey)) {
       setFilteredCategories(filterCache.current.get(cacheKey));
@@ -643,7 +587,7 @@ const Products = () => {
 
       const filteredProducts = category.products
         .map(product => {
-          const { matches, score } = searchProduct(product, debouncedSearchTerm);
+          const { matches, score } = searchProduct(product, searchTerm);
           return matches ? { ...product, relevanceScore: score } : null;
         })
         .filter(Boolean)
@@ -666,7 +610,7 @@ const Products = () => {
       };
     }).filter(category => 
       category.products.length > 0 || 
-      (selectedCategory === category.id && debouncedSearchTerm === '')
+      (selectedCategory === category.id && searchTerm === '')
     );
 
     filterCache.current.set(cacheKey, filtered);
@@ -678,7 +622,7 @@ const Products = () => {
     }
   }, [
     categories,
-    debouncedSearchTerm,
+    searchTerm,
     selectedCategory,
     sortOrder,
     searchProduct
@@ -712,11 +656,11 @@ const Products = () => {
   return (
     <div className="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start mb-6">
           <div>
-            <h1 className="text-3xl font-semibold">
+            <h1 className="text-2xl sm:text-3xl font-semibold">
               {selectedCategory 
-                ? `${categories.find(c => c.id === selectedCategory)?.name} Products` 
+                ? categories.find(c => c.id === selectedCategory)?.name 
                 : 'Product Categories'}
             </h1>
             <p className="text-muted-foreground mt-1">
@@ -725,13 +669,6 @@ const Products = () => {
                 : 'Browse and manage your product catalog'}
             </p>
           </div>
-          <Button 
-            onClick={handleCreateProduct}
-            className="mt-4 sm:mt-0"
-          >
-            <Plus size={16} className="mr-2" />
-            New Product
-          </Button>
         </div>
         
         {/* Back button when viewing a category */}
@@ -745,7 +682,7 @@ const Products = () => {
           </Button>
         )}
         
-        {/* Enhanced filters section */}
+        {/* Simplified filters section using global search */}
         <div className="mb-8 p-4 bg-white/60 backdrop-blur-sm border border-border/40 rounded-lg shadow-sm">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
@@ -754,6 +691,8 @@ const Products = () => {
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onFocus={openGlobalSearch}
+                onClick={openGlobalSearch}
                 className="pl-10"
               />
             </div>
@@ -814,10 +753,7 @@ const Products = () => {
                   <CardTitle className="text-xl text-purple-800">{category.name}</CardTitle>
                   <p className="text-sm text-muted-foreground">{category.description}</p>
                 </CardHeader>
-                <CardContent className="flex justify-between items-center">
-                  <span className="text-sm font-medium">
-                    {category.products.length} Products
-                  </span>
+                <CardContent className="flex justify-end items-center">
                   <Button variant="ghost" size="sm" className="text-purple-600">
                     View <ArrowRight size={16} className="ml-1" />
                   </Button>
