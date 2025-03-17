@@ -19,16 +19,8 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
-    rollupOptions: {
-      // Ensure Rollup doesn't try to use native dependencies
-      onwarn(warning, warn) {
-        // Suppress certain warnings
-        if (warning.code === 'MODULE_LEVEL_DIRECTIVE' || 
-            warning.code === 'CIRCULAR_DEPENDENCY') {
-          return;
-        }
-        warn(warning);
-      }
-    }
+    // Simplified build options
+    minify: true,
+    outDir: "dist"
   }
 });
