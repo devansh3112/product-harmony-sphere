@@ -2487,9 +2487,6 @@ const ProductDetails = () => {
                   <Card key={index} className="bg-background/50">
                     <CardContent className="p-3 sm:p-4 sm:pt-5">
                       <h4 className="font-medium text-sm sm:text-base mb-1 sm:mb-2">{useCase}</h4>
-                      <p className="text-xs sm:text-sm text-muted-foreground">
-                        Implementation example for {useCase.toLowerCase()}.
-                      </p>
                     </CardContent>
                   </Card>
                 ))}

@@ -40,11 +40,6 @@ const ProductCard = ({ product, className, onClick }: ProductCardProps) => {
         <h3 className="font-medium text-lg line-clamp-1">{name}</h3>
         <p className="text-muted-foreground text-sm mt-1 line-clamp-2">{description}</p>
         <div className="flex flex-wrap gap-2 mt-3">
-          {category && (
-            <Badge variant="outline">
-              {category}
-            </Badge>
-          )}
           {subscriptionType && (
             <Badge variant="secondary">
               {subscriptionType}
